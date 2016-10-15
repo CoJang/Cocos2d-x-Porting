@@ -1,0 +1,54 @@
+objectCount 24
+0 d:\Users\bbh10\Desktop\drive-download-20161008T152846Z\1窜拌 富 个 0001.png
+1 d:\Users\bbh10\Desktop\drive-download-20161008T152846Z\1窜拌 富 个 0002.png
+2 d:\Users\bbh10\Desktop\drive-download-20161008T152846Z\1窜拌 富 个 0003.png
+3 d:\Users\bbh10\Desktop\drive-download-20161008T152846Z\1窜拌 富 个 0004.png
+4 d:\Users\bbh10\Desktop\drive-download-20161008T152846Z\1窜拌 富 个 0005.png
+5 d:\Users\bbh10\Desktop\drive-download-20161008T152846Z\1窜拌 富 个 0006.png
+6 d:\Users\bbh10\Desktop\drive-download-20161008T152846Z\1窜拌 富 个 0007.png
+7 d:\Users\bbh10\Desktop\drive-download-20161008T152846Z\1窜拌 富 个 0008.png
+8 d:\Users\bbh10\Desktop\drive-download-20161008T152846Z\1窜拌 富 个 0009.png
+9 d:\Users\bbh10\Desktop\drive-download-20161008T152846Z\1窜拌 富 个 0010.png
+10 d:\Users\bbh10\Desktop\drive-download-20161008T152846Z\1窜拌 富 个 0011.png
+11 d:\Users\bbh10\Desktop\drive-download-20161008T152846Z\1窜拌 富 个 0012.png
+12 d:\Users\bbh10\Desktop\drive-download-20161008T152846Z\1窜拌 富 个 0013.png
+13 d:\Users\bbh10\Desktop\drive-download-20161008T152846Z\1窜拌 富 个 0014.png
+14 d:\Users\bbh10\Desktop\drive-download-20161008T152846Z\1窜拌 富 个 0015.png
+15 d:\Users\bbh10\Desktop\drive-download-20161008T152846Z\1窜拌 富 个 0016.png
+16 d:\Users\bbh10\Desktop\drive-download-20161008T152846Z\1窜拌 富 个 0017.png
+17 d:\Users\bbh10\Desktop\drive-download-20161008T152846Z\1窜拌 富 个 0018.png
+18 d:\Users\bbh10\Desktop\drive-download-20161008T152846Z\1窜拌 富 个 0019.png
+19 d:\Users\bbh10\Desktop\drive-download-20161008T152846Z\1窜拌 富 个 0020.png
+20 d:\Users\bbh10\Desktop\drive-download-20161008T152846Z\1窜拌 富 个 0021.png
+21 d:\Users\bbh10\Desktop\drive-download-20161008T152846Z\1窜拌 富 个 0022.png
+22 d:\Users\bbh10\Desktop\drive-download-20161008T152846Z\1窜拌 富 个 0023.png
+23 d:\Users\bbh10\Desktop\drive-download-20161008T152846Z\1窜拌 富 个 0024.png
+
+pageCount 1
+
+horse_body0.png 1500,2000
+object0 300,400 0,0
+object1 300,400 300,0
+object2 300,400 600,0
+object3 300,400 900,0
+object4 300,400 1200,0
+object5 300,400 0,400
+object6 300,400 300,400
+object7 300,400 600,400
+object8 300,400 900,400
+object9 300,400 1200,400
+object10 300,400 0,800
+object11 300,400 300,800
+object12 300,400 600,800
+object13 300,400 900,800
+object14 300,400 1200,800
+object15 300,400 0,1200
+object16 300,400 300,1200
+object17 300,400 600,1200
+object18 300,400 900,1200
+object19 300,400 1200,1200
+object20 300,400 0,1600
+object21 300,400 300,1600
+object22 300,400 600,1600
+object23 300,400 900,1600
+

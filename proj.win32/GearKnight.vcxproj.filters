@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="win32">
+      <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ETC UNIT">
+      <UniqueIdentifier>{22a87d31-1313-4e98-a0e3-a603f8b1b4f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\SYSTEMS">
+      <UniqueIdentifier>{386e0592-2471-4319-a30d-f40a2a452dbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\UNITS">
+      <UniqueIdentifier>{f7350977-f39c-46b9-9086-ed4f4c7792a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\SCENES">
+      <UniqueIdentifier>{6087b840-04cc-4ae9-bd38-d02efd05ffdf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\tile_background.cpp">
+      <Filter>src\ETC UNIT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Animator.cpp">
+      <Filter>src\SYSTEMS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>src\SYSTEMS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MyCamera.cpp">
+      <Filter>src\SYSTEMS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI.cpp">
+      <Filter>src\ETC UNIT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Horse.cpp">
+      <Filter>src\UNITS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Man.cpp">
+      <Filter>src\UNITS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameScene.cpp">
+      <Filter>src\SCENES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Objects.cpp">
+      <Filter>src\UNITS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Pattern.cpp">
+      <Filter>src\ETC UNIT</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\tile_background.h">
+      <Filter>src\ETC UNIT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Animator.h">
+      <Filter>src\SYSTEMS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>src\SYSTEMS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MyCamera.h">
+      <Filter>src\SYSTEMS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI.h">
+      <Filter>src\ETC UNIT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Horse.h">
+      <Filter>src\UNITS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Man.h">
+      <Filter>src\UNITS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameScene.h">
+      <Filter>src\SCENES</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Objects.h">
+      <Filter>src\UNITS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Pattern.h">
+      <Filter>src\ETC UNIT</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

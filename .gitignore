@@ -1,0 +1,10 @@
+/proj.android-studio
+/proj.win10
+/proj.android/obj
+/cocos2d
+/proj.win32/GearKnight.VC.VC.opendb
+/proj.win32/GearKnight.VC.db
+/proj.win32/*.db
+/proj.win32/*.opendb
+/proj.win32/Debug
+/proj.win32/Debug.win32

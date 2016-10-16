@@ -1,5 +1,6 @@
 #include "Pattern.h"
 #include "GameScene.h"
+#include "TouchChecker.h"
 
 USING_NS_CC;
 
@@ -26,7 +27,7 @@ Pattern* Pattern::InitPattern(cocos2d::Layer* scene)
 			Circle[i*3 + j] = Sprite::create("touchspr.png");
 
 			Circle[i*3 + j]->setAnchorPoint(Vec2(0, 0));
-			Circle[i*3 + j]->setPosition(Vec2(800 + (j * 120), 400 - (i * 120)));
+			Circle[i*3 + j]->setPosition(Vec2(800 + (j * 130), 400 - (i * 130)));
 
 			rt[i * 3 + j]->origin.x = Circle[i * 3 + j]->getPosition().x;
 			rt[i * 3 + j]->origin.y = Circle[i * 3 + j]->getPosition().y;
@@ -35,7 +36,6 @@ Pattern* Pattern::InitPattern(cocos2d::Layer* scene)
 
 			scene->addChild(Circle[i*3 + j], 5, "Circle");
 		}
-
 	}
 
 	return this;
@@ -54,19 +54,11 @@ void Pattern::update(float delta)
 	Sprite::update(delta);
 } 
 
-float IsInCircle(float touchX, float touchY, float SizeX, float SizeY) 
-{
-	// 두 점 사이의 거리를 구한다.
-	//SizeX = SizeX / 2;
-	//SizeY = SizeY / 2;
-	return sqrt((touchX - SizeX)*(touchX - SizeX) + (touchY - SizeY)*(touchY - SizeY));
-}
-
 void Pattern::IsTouched(Vec2 touchlocation)
 {
 	for (int i = 0; i < 9; i++)
 	{
-		if (IsInCircle(touchlocation.x, touchlocation.y, rt[i]->origin.x + 50, rt[i]->origin.y + 50) < 50)
+		if(IsCircleTouched(touchlocation, Circle[i]->getPosition(), 50))
 			Switch[i] = true;
 	}
 }

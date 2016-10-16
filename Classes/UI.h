@@ -8,12 +8,20 @@ class UI : public Animator
 {
 public:
 	Animator*	ingame_UI;
-	Sprite*		noneAni_UI;
+	Sprite*		right_ingame_UI;
+
+	Sprite*		BT_Return;
+	bool		ReturnOn;
+
+	Sprite*		BT_Pause;
+	bool		PauseOff;
 
 	UI();
 	virtual ~UI();
 
 	UI* InitUI(cocos2d::Layer* scene);
+
+	void IsTouched(Vec2 touchlocation);
 
 	virtual void update(float delta);
 };

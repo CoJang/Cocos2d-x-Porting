@@ -57,6 +57,12 @@
     <ClCompile Include="..\Classes\Pattern.cpp">
       <Filter>src\ETC UNIT</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\LobbyScene.cpp">
+      <Filter>src\SCENES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\TouchChecker.cpp">
+      <Filter>src\SYSTEMS</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -91,6 +97,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Pattern.h">
       <Filter>src\ETC UNIT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LobbyScene.h">
+      <Filter>src\SCENES</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\TouchChecker.h">
+      <Filter>src\SYSTEMS</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

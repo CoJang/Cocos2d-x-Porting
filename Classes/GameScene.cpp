@@ -1,7 +1,9 @@
 #include "GameScene.h"
+#include "LobbyScene.h"
 #include "Animator.h"
 #include "MyCamera.h"
 #include "cocostudio/CocoStudio.h"
+#include "SimpleAudioEngine.h"
 #include "ui/CocosGUI.h"
 
 #include <stdio.h>
@@ -10,20 +12,17 @@
 #include <assert.h>
 
 USING_NS_CC;
+
+using namespace CocosDenshion;
 using namespace cocostudio::timeline;
 
 Scene* GameScene::createScene()
 {
-    // 'scene' is an autorelease object
     auto GameScene = Scene::create();
-
-    // 'layer' is an autorelease object
     auto GameSceneLayer = GameScene::create();
 
-    // add layer as a child to scene
     GameScene->addChild(GameSceneLayer);
 
-    // return the scene
     return GameScene;
 }
 
@@ -33,9 +32,12 @@ bool GameScene::init()
     {
         return false;
     }
+	// 배경음을 플레이합니다.
+	SimpleAudioEngine::getInstance()->playBackgroundMusic("overwatch - main theme victory theme (guitar remix).mp3");
 
 	// 저장소를 불러옵니다. 저장소가 없다면 Score는 0에서 시작합니다!
-	Score = UserDefault::getInstance()->getIntegerForKey("SCORE", 0);
+	Score = UserDefault::getInstance()->getFloatForKey("SCORE", 0);
+	//UserDefault::getInstance()->setFloatForKey("SCORE", 0);
 	ScoreLabel = new Label;
 
     // 바닥 화면 [ 사이드 바닥 2개, 메인 바닥 1개, 임시 캐릭터 ]
@@ -93,6 +95,7 @@ void GameScene::update(float delta)
 	man->update(delta);
 	objects->update(delta);
 	pattern->update(delta);
+	InGame_UI->update(delta);
 }
 
 bool GameScene::onTouchBegan(Touch* touch, Event* unused_event)
@@ -100,6 +103,17 @@ bool GameScene::onTouchBegan(Touch* touch, Event* unused_event)
 	Vec2 touchlocate = touch->getLocation();
 
 	pattern->IsTouched(touchlocate);
+	InGame_UI->IsTouched(touchlocate);
+
+	Scene* Lobby = LobbyScene::createScene();
+
+	if(InGame_UI->ReturnOn)		// 씬 전환
+		Director::getInstance()->pushScene(Lobby);
+
+	if(!InGame_UI->PauseOff)	// 배경음악 일시정지 <-> 일시정지 해제
+		SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+	else
+		SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
 
 	return true;
 }
@@ -109,6 +123,7 @@ void GameScene::onTouchMoved(Touch* touch, Event* unused_event)
 	Vec2 touchlocate = touch->getLocation();
 
 	pattern->IsTouched(touchlocate);
+	InGame_UI->IsTouched(touchlocate);
 }
 
 void GameScene::onTouchEnded(Touch* touch, Event* unused_event)

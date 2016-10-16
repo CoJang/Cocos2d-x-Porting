@@ -20,6 +20,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 				   ../../Classes/tile_background.cpp \
 				   ../../Classes/UI.cpp \
 				   ../../Classes/Pattern.cpp \
+				   ../../Classes/LobbyScene.cpp \
+				   ../../Classes/TouchChecker.cpp \
                    ../../Classes/AppDelegate.cpp
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes

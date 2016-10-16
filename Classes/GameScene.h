@@ -20,7 +20,7 @@ public:
 	Objects*	objects;
 	Pattern*	pattern;
 
-	float			Score;		// 점수 저장
+	float		Score;		// 점수 저장
 	Label*		ScoreLabel;	// 점수를 띄워줄 라벨.
 
 public:

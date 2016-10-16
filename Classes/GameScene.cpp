@@ -11,6 +11,7 @@
 #include <string.h>
 #include <assert.h>
 
+
 USING_NS_CC;
 
 using namespace CocosDenshion;
@@ -38,7 +39,6 @@ bool GameScene::init()
 	// 저장소를 불러옵니다. 저장소가 없다면 Score는 0에서 시작합니다!
 	Score = UserDefault::getInstance()->getFloatForKey("SCORE", 0);
 	//UserDefault::getInstance()->setFloatForKey("SCORE", 0);
-	ScoreLabel = new Label;
 
     // 바닥 화면 [ 사이드 바닥 2개, 메인 바닥 1개, 임시 캐릭터 ]
 	Tile_Background = new tile_background;
@@ -78,8 +78,9 @@ bool GameScene::init()
 	pattern = new Pattern;
 	pattern->InitPattern(this);
 
-	ScoreLabel->setSystemFontSize(40.0f);
-	ScoreLabel->setPosition(Vec2(25.0f, 705.0f));
+	// 스코어 출력 라벨.
+	ScoreLabel = Label::createWithTTF("", "hymocpanl.ttf", 40);
+	ScoreLabel->setPosition(Vec2(20.0f, 695.0f));
 	ScoreLabel->setAnchorPoint(Vec2(0, 1));
 	this->addChild(ScoreLabel, 6, "ScoreLabel");
 
@@ -112,7 +113,7 @@ bool GameScene::onTouchBegan(Touch* touch, Event* unused_event)
 
 	if(!InGame_UI->PauseOff)	// 배경음악 일시정지 <-> 일시정지 해제
 		SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
-	else
+	else if(InGame_UI->PauseOff)
 		SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
 
 	return true;
@@ -140,6 +141,5 @@ void GameScene::updateScore(float delta)
 	Score += delta * 1;
 	UserDefault::getInstance()->flush();
 
-	auto label = dynamic_cast<Label*>(this->getChildByName("ScoreLabel"));
-	label->setString(StringUtils::format("Score = %.1f", Score));
+	ScoreLabel->setString(StringUtils::format("Score  %.1fm", Score));
 }

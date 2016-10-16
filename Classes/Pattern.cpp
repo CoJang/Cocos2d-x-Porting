@@ -8,7 +8,7 @@ Pattern::Pattern()
 	for (int i = 0; i < 9; i++)
 	{
 		Circle[i] = new Sprite;
-		Switch[i] = true;
+		Switch[i] = false;
 		rt[i] = new Rect;
 	}
 }
@@ -26,7 +26,7 @@ Pattern* Pattern::InitPattern(cocos2d::Layer* scene)
 			Circle[i*3 + j] = Sprite::create("touchspr.png");
 
 			Circle[i*3 + j]->setAnchorPoint(Vec2(0, 0));
-			Circle[i*3 + j]->setPosition(Vec2(800 + (j * 120), 500 - (i * 120)));
+			Circle[i*3 + j]->setPosition(Vec2(800 + (j * 120), 400 - (i * 120)));
 
 			rt[i * 3 + j]->origin.x = Circle[i * 3 + j]->getPosition().x;
 			rt[i * 3 + j]->origin.y = Circle[i * 3 + j]->getPosition().y;
@@ -45,7 +45,7 @@ void Pattern::update(float delta)
 {
 	for (int i = 0; i < 9; i++)
 	{
-		if(!Switch[i])
+		if(Switch[i])
 			Circle[i]->setColor(Color3B(255, 255, 0));
 		else
 			Circle[i]->setColor(Color3B(255, 255, 255));
@@ -67,7 +67,15 @@ void Pattern::IsTouched(Vec2 touchlocation)
 	for (int i = 0; i < 9; i++)
 	{
 		if (IsInCircle(touchlocation.x, touchlocation.y, rt[i]->origin.x + 50, rt[i]->origin.y + 50) < 50)
-			Switch[i] ^= true;
+			Switch[i] = true;
+	}
+}
+
+void Pattern::AllSwitchOff()
+{
+	for (int i = 0; i < 9; i++)
+	{
+		Switch[i] = false;
 	}
 }
 

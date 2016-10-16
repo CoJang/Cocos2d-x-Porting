@@ -4,13 +4,6 @@
 
 USING_NS_CC;
 
-struct RT
-{
-public:
-	float OriginX, OriginY;
-	float SizeX, SizeY;
-};
-
 class Pattern : public Sprite
 {
 public:
@@ -24,5 +17,6 @@ public:
 	Pattern* InitPattern(cocos2d::Layer* scene);
 
 	void IsTouched(Vec2 touchlocation);
+	void AllSwitchOff();
 	virtual void update(float delta);
 };

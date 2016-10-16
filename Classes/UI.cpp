@@ -27,6 +27,8 @@ UI* UI::InitUI(cocos2d::Layer* scene)
 
 	scene->addChild(noneAni_UI, 5, "noneani_ui");
 
+
+
 	return this;
 }
 

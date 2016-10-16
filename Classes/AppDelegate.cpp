@@ -28,8 +28,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
-        glview = GLViewImpl::createWithRect("Plzporting", Rect(0, 0, 1280, 720));
-		//glview = GLViewImpl::createWithRect("Plzporting", Rect(0, 0, 2500, 1300));
+        glview = GLViewImpl::createWithRect("Gear Knight", Rect(0, 0, 1280, 720));
+		//glview = GLViewImpl::createWithRect("Gear Knight", Rect(0, 0, 2500, 1300));
         director->setOpenGLView(glview);
     }
 

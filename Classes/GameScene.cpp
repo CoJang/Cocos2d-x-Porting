@@ -34,6 +34,10 @@ bool GameScene::init()
         return false;
     }
 
+	// 저장소를 불러옵니다. 저장소가 없다면 Score는 0에서 시작합니다!
+	Score = UserDefault::getInstance()->getIntegerForKey("SCORE", 0);
+	ScoreLabel = new Label;
+
     // 바닥 화면 [ 사이드 바닥 2개, 메인 바닥 1개, 임시 캐릭터 ]
 	Tile_Background = new tile_background;
 	Tile_Background->InitTile(this);
@@ -72,12 +76,18 @@ bool GameScene::init()
 	pattern = new Pattern;
 	pattern->InitPattern(this);
 
+	ScoreLabel->setSystemFontSize(40.0f);
+	ScoreLabel->setPosition(Vec2(25.0f, 705.0f));
+	ScoreLabel->setAnchorPoint(Vec2(0, 1));
+	this->addChild(ScoreLabel, 6, "ScoreLabel");
+
 	scheduleUpdate();
     return true;
 }
 
 void GameScene::update(float delta)
 {
+	updateScore(delta);
 	Tile_Background->update(delta);
 	horse->update(delta);
 	man->update(delta);
@@ -91,7 +101,30 @@ bool GameScene::onTouchBegan(Touch* touch, Event* unused_event)
 
 	pattern->IsTouched(touchlocate);
 
-	//CCLOG("Touch Location [ X : %f ], [ Y : %f ]", touchlocate.x, touchlocate.y);
-
 	return true;
+}
+
+void GameScene::onTouchMoved(Touch* touch, Event* unused_event)
+{
+	Vec2 touchlocate = touch->getLocation();
+
+	pattern->IsTouched(touchlocate);
+}
+
+void GameScene::onTouchEnded(Touch* touch, Event* unused_event)
+{
+	Vec2 touchlocate = touch->getLocation();
+
+	pattern->AllSwitchOff();
+}
+
+void GameScene::updateScore(float delta)
+{
+	UserDefault::getInstance()->setFloatForKey("SCORE", Score); // 업데이트 된 점수를 다시 저장해요!
+
+	Score += delta * 1;
+	UserDefault::getInstance()->flush();
+
+	auto label = dynamic_cast<Label*>(this->getChildByName("ScoreLabel"));
+	label->setString(StringUtils::format("Score = %.1f", Score));
 }

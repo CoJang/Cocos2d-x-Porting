@@ -22,7 +22,7 @@ Scene* GameScene::createScene()
     auto GameScene = Scene::create();
     auto GameSceneLayer = GameScene::create();
 
-    GameScene->addChild(GameSceneLayer);
+    GameScene->addChild(GameSceneLayer, 0, "GameSceneLayer");
 
     return GameScene;
 }
@@ -66,17 +66,18 @@ bool GameScene::init()
 	listener->onTouchEnded = CC_CALLBACK_2(GameScene::onTouchEnded, this);
 	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
 
+	pattern = new Pattern;
+	pattern->InitPattern(this);
+
 	horse = new Horse;
 	horse->InitHorse(this);
 
 	man = new Man;
+	pattern->AddCallback(Man::touchEndCallbackRunner, man);
 	man->InitMan(this);
 
 	InGame_UI = new UI;
 	InGame_UI->InitUI(this);
-
-	pattern = new Pattern;
-	pattern->InitPattern(this);
 
 	// 스코어 출력 라벨.
 	ScoreLabel = Label::createWithTTF("", "hymocpanl.ttf", 40);
@@ -93,7 +94,7 @@ void GameScene::update(float delta)
 	updateScore(delta);
 	Tile_Background->update(delta);
 	horse->update(delta);
-	man->update(delta);
+	man->update(delta, this);
 	objects->update(delta);
 	pattern->update(delta);
 	InGame_UI->update(delta);

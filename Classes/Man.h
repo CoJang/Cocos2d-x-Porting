@@ -1,6 +1,7 @@
 #pragma once
 #include "cocos2d.h"
 #include "Animator.h"
+#include "Pattern.h"
 
 USING_NS_CC;
 
@@ -12,14 +13,24 @@ private:
 public:
 	Animator*	Head;
 	Animator*	Body;
+	Animator*	TempBody;
 	Animator*	Legs;
 
 	float	  m_Level;
+	bool	  IsAttack;
 
 	Man();
 	virtual ~Man();
 
 	Man* InitMan(cocos2d::Layer* scene);
 
-	virtual void update(float delta);
+	void MoveMan(float delta);
+	virtual void update(float delta, cocos2d::Layer* scene);
+	
+	void touchEndCallback(Pattern::PATTERN_NAME index);
+
+public:
+	// touchEndCallbackRunner가 호출되면 Man::touchEndCallback이 호출됨.
+	static inline void touchEndCallbackRunner(Pattern::PATTERN_NAME index, void* obj) 
+									{ reinterpret_cast<Man*>(obj)->touchEndCallback(index); }
 };

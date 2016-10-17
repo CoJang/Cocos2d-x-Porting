@@ -16,6 +16,7 @@ public:
 	//[5]    한 개의 스프라이트가 출력 될 시간
 	//[6, 7] 파일명 [스프라이트, 이미지]
 	static Animator* InitAnimation(cocos2d::Layer* scene, float anidelay, char* imagefile);
+	static Animator* InitOnceAnimation(cocos2d::Layer* scene, float anidelay, char* imagefile);
 
 private:
 	bool p_ReadInfo(const char* imageFile);		// .txt에 있는 정보를 읽어오는 함수

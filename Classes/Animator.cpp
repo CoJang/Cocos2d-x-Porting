@@ -156,6 +156,7 @@ Animator* Animator::InitAnimation(cocos2d::Layer* scene, float anidelay, char* i
 	_new->AniDelay = anidelay;
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	for (auto i = TextureTable.begin(), e = TextureTable.end(); i != e; ++i) {
 		tmpStr.clear();
 		tmpStr = imagefile;
@@ -177,6 +178,62 @@ Animator* Animator::InitAnimation(cocos2d::Layer* scene, float anidelay, char* i
 	animation->setDelayPerUnit(_new->AniDelay);
 
 	_new->runAction(RepeatForever::create(Animate::create(animation)));
+
+	scene->addChild(_new, 4, imagefile);
+	return _new;
+
+FAILED_FUNC:
+	if (_new)delete _new;
+	if (texture)delete texture;
+	if (animation)delete animation;
+	return nullptr;
+}
+
+Animator* Animator::InitOnceAnimation(cocos2d::Layer* scene, float anidelay, char* imagefile)
+{
+	Animator* _new = nullptr;
+
+	Texture2D* texture = nullptr;
+	Animation* animation = nullptr;
+
+	static std::string tmpStr(260, 0);
+
+	_new = new (std::nothrow) Animator();
+	if (!_new)goto FAILED_FUNC;
+
+	if (!_new->p_ReadInfo(imagefile))goto FAILED_FUNC;
+
+	if (!_new->init())goto FAILED_FUNC;
+
+	_new->autorelease();
+
+	_new->AniDelay = anidelay;
+
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	for (auto i = TextureTable.begin(), e = TextureTable.end(); i != e; ++i) {
+		tmpStr.clear();
+		tmpStr = imagefile;
+		tmpStr = tmpStr.substr(0, tmpStr.rfind('/'));
+		tmpStr += '/';
+		tmpStr += i->name;
+
+		i->texture = TextureCache::sharedTextureCache()->addImage(i->name);  // the origin was tmpStr.c_str()
+		if (!i->texture)goto FAILED_FUNC;
+	}
+
+	animation = Animation::create();
+	if (!animation)goto FAILED_FUNC;
+
+	for (auto i : FrameTable) {
+		animation->addSpriteFrame(SpriteFrame::createWithTexture(TextureTable[i.texInd].texture, i.rt));
+	}
+
+	animation->setDelayPerUnit(_new->AniDelay);
+
+	//auto sequence = Sequence::create(Animate::create(animation), RemoveSelf::create(), nullptr);
+
+	_new->runAction(Animate::create(animation));
 
 	scene->addChild(_new, 4, imagefile);
 	return _new;

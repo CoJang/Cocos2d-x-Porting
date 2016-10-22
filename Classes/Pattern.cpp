@@ -4,8 +4,11 @@
 
 USING_NS_CC;
 
+<<<<<<< HEAD
 #define ARRAY_SIZE(d) sizeof(d) / sizeof((d)[0])
 
+=======
+>>>>>>> 33dbd04960c42cf47d6a0cbfe91e9d4ac2f16e65
 const std::vector<Pattern::PATTERN_TYPE> Pattern::PatternTable = {
 	{1, 2, 3, 6, 9, 0},	// [0] 속도상승 패턴
 
@@ -56,7 +59,11 @@ Pattern::PATTERN_NAME Pattern::GetPattern(const unsigned char* queue) {
 		for (_out = 0; _out < e; ++_out) {
 			if (cur == PatternTable[_out])goto RETURN_FUNC;
 		}
+<<<<<<< HEAD
 		if (_out >= e)_out = 0xffffffff;
+=======
+		if (_out >= e)_out = -1;
+>>>>>>> 33dbd04960c42cf47d6a0cbfe91e9d4ac2f16e65
 	}
 
 RETURN_FUNC:
@@ -101,7 +108,11 @@ Pattern* Pattern::InitPattern(cocos2d::Layer* scene)
 			Circle[i*3 + j].sprite = Sprite::create("touchspr.png");
 
 			Circle[i*3 + j].sprite->setAnchorPoint(Vec2(0, 0));
+<<<<<<< HEAD
 			Circle[i*3 + j].sprite->setPosition(Vec2(830 + (j * 150), 400 - (i * 150)));
+=======
+			Circle[i*3 + j].sprite->setPosition(Vec2(800 + (j * 130), 400 - (i * 130)));
+>>>>>>> 33dbd04960c42cf47d6a0cbfe91e9d4ac2f16e65
 
 			Circle[i * 3 + j].rt->origin.x = Circle[i * 3 + j].sprite->getPosition().x;
 			Circle[i * 3 + j].rt->origin.y = Circle[i * 3 + j].sprite->getPosition().y;
@@ -128,7 +139,11 @@ Pattern* Pattern::InitPattern(cocos2d::Layer* scene)
 
 void Pattern::update(float delta)
 {
+<<<<<<< HEAD
 	for (int i = 0; i < ARRAY_SIZE(Circle); i++)
+=======
+	for (int i = 0; i < _countof(Circle); i++)
+>>>>>>> 33dbd04960c42cf47d6a0cbfe91e9d4ac2f16e65
 	{
 		if(Circle_touched[i])
 			Circle[i].sprite->setColor(Color3B(255, 255, 0));
@@ -159,7 +174,11 @@ void Pattern::AllSwitchOff()
 	memset(Circle_touched, 0, sizeof Circle_touched);
 	ret = GetPattern(InputQueue);
 
+<<<<<<< HEAD
 	if (ret != 0xffffffff) {
+=======
+	if (ret != -1) {
+>>>>>>> 33dbd04960c42cf47d6a0cbfe91e9d4ac2f16e65
 		auto ai = callbackArgTable.begin();
 		for (auto fi = callbackTable.begin(), fe = callbackTable.end(); fi != fe; ++fi, ++ai) {
 			(*fi)(ret, (*ai));

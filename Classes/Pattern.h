@@ -12,7 +12,11 @@ class Pattern : public Sprite
 
 public:
 	enum PATTERN_NAME : unsigned long{
+<<<<<<< HEAD
 		PN_ERROR = 0xffffffff,
+=======
+		PN_ERROR = -1,
+>>>>>>> 33dbd04960c42cf47d6a0cbfe91e9d4ac2f16e65
 
 		PN_SPEED_INCREASE = 0,
 		PN_SPEED_DECREASE = 1,

@@ -8,7 +8,11 @@ objectCount 6
 
 pageCount 1
 
+<<<<<<< HEAD
 man_defense0.png 2000,800
+=======
+man_guard0.png 2000,800
+>>>>>>> 33dbd04960c42cf47d6a0cbfe91e9d4ac2f16e65
 object0 500,400 0,0
 object1 500,400 500,0
 object2 500,400 1000,0

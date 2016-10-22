@@ -98,6 +98,10 @@ void GameScene::update(float delta)
 	Tile_Background->update(delta);
 	horse->update(delta);
 	man->update(delta, this);
+<<<<<<< HEAD
+=======
+	objects->update(delta);
+>>>>>>> 33dbd04960c42cf47d6a0cbfe91e9d4ac2f16e65
 	pattern->update(delta);
 	InGame_UI->update(delta);
 	for (int i = 0; i < 10; i++)

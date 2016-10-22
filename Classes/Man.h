@@ -13,6 +13,7 @@ private:
 public:
 	Animator*	Head;
 	Animator*	Body;
+	Animator*	TempBody;
 	Animator*	Legs;
 
 	Action*		TempBody_shd;
@@ -20,7 +21,10 @@ public:
 
 	float	  m_Level;
 	bool	  IsAttack;
+<<<<<<< HEAD
 	bool	  IsDefense;
+=======
+>>>>>>> 33dbd04960c42cf47d6a0cbfe91e9d4ac2f16e65
 
 	Man();
 	virtual ~Man();

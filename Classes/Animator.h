@@ -17,7 +17,10 @@ public:
 	//[6, 7] 파일명 [스프라이트, 이미지]
 	static Animator* InitAnimation(cocos2d::Layer* scene, float anidelay, char* imagefile);
 	static Animator* InitOnceAnimation(cocos2d::Layer* scene, float anidelay, char* imagefile);
+<<<<<<< HEAD
 	static Action* MakeAnimateAction(float anidelay, char* imagefile);
+=======
+>>>>>>> 33dbd04960c42cf47d6a0cbfe91e9d4ac2f16e65
 
 private:
 	bool p_ReadInfo(const char* imageFile);		// .txt에 있는 정보를 읽어오는 함수

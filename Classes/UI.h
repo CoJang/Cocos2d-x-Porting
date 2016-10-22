@@ -8,6 +8,7 @@ class UI : public Animator
 {
 public:
 	Animator*	ingame_UI;
+	Animator*	ingame_UI_Lamp;
 	Sprite*		right_ingame_UI;
 
 	Sprite*		BT_Return;

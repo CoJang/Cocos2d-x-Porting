@@ -1,4 +1,5 @@
 #include "Objects.h"
+#include "WELLRAND.h"
 
 USING_NS_CC;
 
@@ -11,38 +12,30 @@ Objects::Objects()
 Objects::~Objects()
 {}
 
-Objects* Objects::InitObjects(cocos2d::Layer* scene, Vec2 sprpos)
+Objects* Objects::InitObjects(cocos2d::Layer* scene)
 {
-	int random_x = 0;
+	unsigned int random_x = MakeRandWithRange(100);
 
-	this->SideObject = Sprite::create("object1.png");
+	SideObject = Sprite::create("object1.png");
 
-	if (this->SideObject == nullptr)
+	if (SideObject == nullptr)
 		return false;
 
-	random_x = cocos2d::RandomHelper::random_int(1, 6);
+	SideObject->setAnchorPoint(Vec2(0, 0));
+	SideObject->setScale(ObjectScale, ObjectScale);
+	SideObject->setRotation3D(Vec3(70, 0, 0));
 
-	this->SideObject->setAnchorPoint(Vec2(0, 0));
-	this->SideObject->setScale(ObjectScale, ObjectScale);
-	this->SideObject->setRotation3D(Vec3(70, 0, 0));
+	SideObject->setPosition(1100, random_x * 600);
 
-
-	scene->addChild(this->SideObject);
-
-	this->SideObject->setPosition(sprpos);
-	//SideObject->setPosition(1100, 2000);
-
-	/*if (SideObject[0]->getPositionX() == SideObject[1]->getPositionX())
-		SideObject[0]->setPositionX(SideObject[0]->getPositionX() + 550);
-	if (SideObject[0]->getPositionX() > 1100)
-		SideObject[0]->setPositionX(SideObject[0]->getPositionX() - 450);*/
-
+	scene->addChild(SideObject);
 	return this;
+
 }
 
 void Objects::update(float delta)
 {
-	int sprYpos = this->SideObject->getPositionY();
+	int sprXpos = SideObject->getPositionX();
+	int sprYpos = SideObject->getPositionY();
 
 	if (sprYpos < 1300)
 	{
@@ -51,10 +44,9 @@ void Objects::update(float delta)
 		else
 			ObjectScale = 0.5f;
 
-		this->SideObject->setScale(ObjectScale, ObjectScale);
+		SideObject->setScale(ObjectScale, ObjectScale);
 	}
 
-	this->SideObject->setPositionY(sprYpos - delta * 500);
+	SideObject->setPositionY(sprYpos - delta * 500);
 
-	//Sprite::update(delta);
 }

@@ -1,5 +1,7 @@
 #include "GameScene.h"
+#include "Loading.h"
 #include "AppDelegate.h"
+#include "WELLRAND.h"
 
 
 USING_NS_CC;
@@ -40,11 +42,13 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     director->setAnimationInterval(1.0f / 60);     // set FPS. the default value is 1.0/60 if you don't call this
 
-    FileUtils::getInstance()->addSearchPath("res"); // add File Path
+    //FileUtils::getInstance()->addSearchPath("res"); // add File Path
+
+	InitRand(); // 랜덤함수 발생기 초기화
 
     // create a scene. it's an autorelease object
-    auto scene = GameScene::createScene();
-    //auto scene = HelloWorld::createScene();
+    //auto scene = GameScene::createScene();
+    auto scene = Loading::createScene();
 
     // run
     director->runWithScene(scene);

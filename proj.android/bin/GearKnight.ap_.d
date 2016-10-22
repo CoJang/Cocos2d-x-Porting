@@ -17,8 +17,18 @@ D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\horse_head
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\horse_head0.png \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\hymocpanl.ttf \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\MainScene.csb \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\man_attack.txt \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\man_attack0.png \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\man_attack_to_defense.txt \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\man_attack_to_defense0.png \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\man_body.txt \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\man_body0.png \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\man_defense.txt \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\man_defense0.png \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\man_defense_std.txt \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\man_defense_std0.png \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\man_defense_to_attack.txt \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\man_defense_to_attack0.png \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\man_head.txt \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\man_head0.png \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\man_legs.txt \
@@ -31,9 +41,13 @@ D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\overwatch 
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\res \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\sky_gradaition.png \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\sky_ground.png \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\title_logo.png \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\touchspr.png \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\ui.txt \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\ui0.png \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\ui_lamp.txt \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\ui_lamp0.png \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\fonts\arial.ttf \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\fonts\hymocpanl.ttf \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\fonts\Marker Felt.ttf \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\bin\AndroidManifest.xml \

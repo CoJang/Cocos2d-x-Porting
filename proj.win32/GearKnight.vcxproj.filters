@@ -63,6 +63,12 @@
     <ClCompile Include="..\Classes\TouchChecker.cpp">
       <Filter>src\SYSTEMS</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\WELLRAND.cpp">
+      <Filter>src\SYSTEMS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Loading.cpp">
+      <Filter>src\SYSTEMS</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -102,6 +108,12 @@
       <Filter>src\SCENES</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\TouchChecker.h">
+      <Filter>src\SYSTEMS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\WELLRAND.h">
+      <Filter>src\SYSTEMS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Loading.h">
       <Filter>src\SYSTEMS</Filter>
     </ClInclude>
   </ItemGroup>

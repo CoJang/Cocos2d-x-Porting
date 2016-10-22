@@ -148,6 +148,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\GameScene.cpp" />
     <ClCompile Include="..\Classes\Horse.cpp" />
+    <ClCompile Include="..\Classes\Loading.cpp" />
     <ClCompile Include="..\Classes\LobbyScene.cpp" />
     <ClCompile Include="..\Classes\Man.cpp" />
     <ClCompile Include="..\Classes\MyCamera.cpp" />
@@ -156,6 +157,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\tile_background.cpp" />
     <ClCompile Include="..\Classes\TouchChecker.cpp" />
     <ClCompile Include="..\Classes\UI.cpp" />
+    <ClCompile Include="..\Classes\WELLRAND.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +165,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\GameScene.h" />
     <ClInclude Include="..\Classes\Horse.h" />
+    <ClInclude Include="..\Classes\Loading.h" />
     <ClInclude Include="..\Classes\LobbyScene.h" />
     <ClInclude Include="..\Classes\Man.h" />
     <ClInclude Include="..\Classes\MyCamera.h" />
@@ -171,6 +174,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\tile_background.h" />
     <ClInclude Include="..\Classes\TouchChecker.h" />
     <ClInclude Include="..\Classes\UI.h" />
+    <ClInclude Include="..\Classes\WELLRAND.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

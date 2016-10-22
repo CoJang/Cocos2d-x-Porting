@@ -22,7 +22,7 @@ Scene* GameScene::createScene()
     auto GameScene = Scene::create();
     auto GameSceneLayer = GameScene::create();
 
-    GameScene->addChild(GameSceneLayer);
+    GameScene->addChild(GameSceneLayer, 0, "GameSceneLayer");
 
     return GameScene;
 }
@@ -34,7 +34,7 @@ bool GameScene::init()
         return false;
     }
 	// 배경음을 플레이합니다.
-	SimpleAudioEngine::getInstance()->playBackgroundMusic("overwatch - main theme victory theme (guitar remix).mp3");
+	SimpleAudioEngine::getInstance()->playBackgroundMusic("sound/overwatch - main theme victory theme (guitar remix).mp3");
 
 	// 저장소를 불러옵니다. 저장소가 없다면 Score는 0에서 시작합니다!
 	Score = UserDefault::getInstance()->getFloatForKey("SCORE", 0);
@@ -44,8 +44,11 @@ bool GameScene::init()
 	Tile_Background = new tile_background;
 	Tile_Background->InitTile(this);
 
-	objects = new Objects;
-	objects->InitObjects(this, Vec2(70, 2100));
+	for (int i = 0; i < 10; i++)
+	{
+		objects[i] = new Objects;
+		objects[i]->InitObjects(this);
+	}
     
     // 카메라 [ 이 뒤에 생성되는 개체는 카메라의 영향을 안받는다. ]
     {
@@ -66,22 +69,23 @@ bool GameScene::init()
 	listener->onTouchEnded = CC_CALLBACK_2(GameScene::onTouchEnded, this);
 	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
 
+	pattern = new Pattern;
+	pattern->InitPattern(this);
+
 	horse = new Horse;
 	horse->InitHorse(this);
 
 	man = new Man;
+	pattern->AddCallback(Man::touchEndCallbackRunner, man);
 	man->InitMan(this);
 
 	InGame_UI = new UI;
 	InGame_UI->InitUI(this);
 
-	pattern = new Pattern;
-	pattern->InitPattern(this);
-
 	// 스코어 출력 라벨.
 	ScoreLabel = Label::createWithTTF("", "hymocpanl.ttf", 40);
-	ScoreLabel->setPosition(Vec2(20.0f, 695.0f));
-	ScoreLabel->setAnchorPoint(Vec2(0, 1));
+	ScoreLabel->setPosition(Vec2(310.0f, 695.0f));
+	ScoreLabel->setAnchorPoint(Vec2(1, 1));
 	this->addChild(ScoreLabel, 6, "ScoreLabel");
 
 	scheduleUpdate();
@@ -93,10 +97,13 @@ void GameScene::update(float delta)
 	updateScore(delta);
 	Tile_Background->update(delta);
 	horse->update(delta);
-	man->update(delta);
-	objects->update(delta);
+	man->update(delta, this);
 	pattern->update(delta);
 	InGame_UI->update(delta);
+	for (int i = 0; i < 10; i++)
+	{
+		objects[i]->update(delta);
+	}
 }
 
 bool GameScene::onTouchBegan(Touch* touch, Event* unused_event)
@@ -141,5 +148,5 @@ void GameScene::updateScore(float delta)
 	Score += delta * 1;
 	UserDefault::getInstance()->flush();
 
-	ScoreLabel->setString(StringUtils::format("Score  %.1fm", Score));
+	ScoreLabel->setString(StringUtils::format("%.1fm", Score));
 }

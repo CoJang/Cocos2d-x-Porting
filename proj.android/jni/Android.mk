@@ -10,6 +10,7 @@ LOCAL_MODULE := cocos2dcpp_shared
 
 LOCAL_MODULE_FILENAME := libcocos2dcpp
 
+# LOCAL_SRC_FILES := $(notdir $(wildcard $(LOCAL_PATH)/*.cpp))
 LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/Animator.cpp \
 				   ../../Classes/GameScene.cpp \
@@ -22,6 +23,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 				   ../../Classes/Pattern.cpp \
 				   ../../Classes/LobbyScene.cpp \
 				   ../../Classes/TouchChecker.cpp \
+				   ../../Classes/WELLRAND.cpp \
+				   ../../Classes/Loading.cpp \
                    ../../Classes/AppDelegate.cpp
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes

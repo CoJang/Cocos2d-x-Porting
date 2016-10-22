@@ -17,7 +17,7 @@ public:
 	Man*   man;
 	UI*	   InGame_UI;
 	tile_background* Tile_Background;
-	Objects*	objects;
+	Objects*	objects[10];
 	Pattern*	pattern;
 
 	float		Score;		// 점수 저장

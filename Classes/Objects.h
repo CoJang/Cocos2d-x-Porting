@@ -14,7 +14,7 @@ public:
 	float	 ObjectScale;
 
 public:
-	Objects* InitObjects(cocos2d::Layer* scene, Vec2 sprpos);
+	Objects* InitObjects(cocos2d::Layer* scene);
 
 	virtual void update(float delta);
 };

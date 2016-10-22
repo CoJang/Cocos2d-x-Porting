@@ -6,6 +6,7 @@ USING_NS_CC;
 UI::UI()
 	: 
 	ingame_UI(new Animator),
+	ingame_UI_Lamp(new Animator),
 	right_ingame_UI(new Sprite),
 	BT_Return(new Sprite),
 	ReturnOn(false),
@@ -24,6 +25,11 @@ UI* UI::InitUI(cocos2d::Layer* scene)
 
 	ingame_UI->setAnchorPoint(Vec2(0, 0));
 	ingame_UI->setPosition(Vec2(0, 0));
+
+	ingame_UI_Lamp = ingame_UI_Lamp->InitAnimation(scene, 0.08f, "ui_lamp.txt");
+
+	ingame_UI_Lamp->setAnchorPoint(Vec2(0, 0));
+	ingame_UI_Lamp->setPosition(Vec2(0, 0));
 
 	right_ingame_UI = Sprite::create("noneani_ui.png");
 
@@ -47,6 +53,7 @@ UI* UI::InitUI(cocos2d::Layer* scene)
 	BT_Pause->setScale(0.7f);
 
 	scene->addChild(BT_Pause, 5, "BT_Pause");
+
 
 	return this;
 }

@@ -7,7 +7,11 @@ Man::Man()
 	m_Level(1),
 	Head(new Animator),
 	Body(new Animator),
-	Legs(new Animator)
+	TempBody(new Action),
+	TempBody_shd(new Action),
+	Legs(new Animator),
+	IsAttack(false),
+	IsDefense(false)
 {
 	m_fHeightMover = 0;
 }
@@ -32,11 +36,18 @@ Man* Man::InitMan(cocos2d::Layer* scene)
 
 	Body->setAnchorPoint(Vec2(0.5f, 0));
 	Body->setPosition(Vec2(640, 0));
-
+	
 	return this;
 }
 
-void Man::update(float delta)
+void Man::update(float delta, cocos2d::Layer* scene)
+{
+	MoveMan(delta);
+
+	Sprite::update(delta);
+}
+
+void Man::MoveMan(float delta)
 {
 	static const float PI = 3.14159265359f;
 	static const int power = -10;		// ÀÛ¾ÆÁú¼ö·Ï ÁøÆøÀÌ Ä¿Áü
@@ -51,6 +62,54 @@ void Man::update(float delta)
 	Head->setPosition(Vec2(640, fHeight));
 	Body->setPosition(Vec2(640, fHeight));
 	Legs->setPosition(Vec2(640, fHeight));
+}
 
-	Sprite::update(delta);
+void Man::touchEndCallback(Pattern::PATTERN_NAME index)
+{
+	Scene* SCENE = Director::getInstance()->getRunningScene();
+	auto scene = dynamic_cast<Layer*>(SCENE->getChildByName("GameSceneLayer"));
+
+	switch (index) 
+	{
+	  case Pattern::PATTERN_NAME::PN_SPEED_INCREASE: 
+			Head->setVisible(true);
+			IsAttack = false;
+			IsDefense = false;
+			Body->setColor(Color3B(255, 0, 0));
+			break;
+	  case Pattern::PATTERN_NAME::PN_SPEED_DECREASE:
+			Head->setVisible(true);
+			IsAttack = false;
+			IsDefense = false;
+			Body->setColor(Color3B(255, 255, 0));
+			break;
+	  case Pattern::PATTERN_NAME::PN_USE_SKILL:
+			Head->setVisible(true);
+			IsAttack = false;
+			IsDefense = false;
+			Body->setColor(Color3B(255, 0, 255));
+			break;
+	  case Pattern::PATTERN_NAME::PN_GUARDED:
+			TempBody = MakeAnimateAction(0.1f, "man_defense.txt");
+			Body->stopAllActions();
+			Head->setVisible(false);
+			Body->runAction(TempBody);
+			IsAttack = false;
+			IsDefense = true;
+			break;
+	  case Pattern::PATTERN_NAME::PN_CHANGED_ATTACK_POSE01:
+	  case Pattern::PATTERN_NAME::PN_CHANGED_ATTACK_POSE02:
+	  case Pattern::PATTERN_NAME::PN_CHANGED_ATTACK_POSE03:
+	  case Pattern::PATTERN_NAME::PN_CHANGED_ATTACK_POSE04:
+			TempBody = MakeAnimateAction(0.1f, "man_attack.txt");
+			Body->stopAllActions();
+			Head->setVisible(false);
+			Body->runAction(TempBody);
+			IsAttack = true;
+			IsDefense = false;
+			break;
+	  case Pattern::PATTERN_NAME::PN_ERROR:
+			Body->setColor(Color3B(255, 255, 255));
+			break;
+	}
 }

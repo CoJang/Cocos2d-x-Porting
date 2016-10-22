@@ -189,7 +189,6 @@ FAILED_FUNC:
 	return nullptr;
 }
 
-<<<<<<< HEAD
 Action* Animator::MakeAnimateAction(float anidelay, char* imagefile)
 {
 	Animator* _new = nullptr;
@@ -251,8 +250,6 @@ FAILED_FUNC:
 	return nullptr;
 }
 
-=======
->>>>>>> 33dbd04960c42cf47d6a0cbfe91e9d4ac2f16e65
 Animator* Animator::InitOnceAnimation(cocos2d::Layer* scene, float anidelay, char* imagefile)
 {
 	Animator* _new = nullptr;
@@ -282,11 +279,8 @@ Animator* Animator::InitOnceAnimation(cocos2d::Layer* scene, float anidelay, cha
 		tmpStr += '/';
 		tmpStr += i->name;
 
-<<<<<<< HEAD
 		i->texture = TextureCache::getInstance()->addImage(i->name);  // the origin was tmpStr.c_str()
-=======
 		i->texture = TextureCache::sharedTextureCache()->addImage(i->name);  // the origin was tmpStr.c_str()
->>>>>>> 33dbd04960c42cf47d6a0cbfe91e9d4ac2f16e65
 		if (!i->texture)goto FAILED_FUNC;
 	}
 
@@ -300,10 +294,7 @@ Animator* Animator::InitOnceAnimation(cocos2d::Layer* scene, float anidelay, cha
 	animation->setDelayPerUnit(_new->AniDelay);
 
 	//auto sequence = Sequence::create(Animate::create(animation), RemoveSelf::create(), nullptr);
-<<<<<<< HEAD
 	//auto sequence = Sequence::create(Animate::create(animation), nullptr);
-=======
->>>>>>> 33dbd04960c42cf47d6a0cbfe91e9d4ac2f16e65
 
 	_new->runAction(Animate::create(animation));
 

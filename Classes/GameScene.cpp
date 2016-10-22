@@ -34,7 +34,7 @@ bool GameScene::init()
         return false;
     }
 	// 배경음을 플레이합니다.
-	SimpleAudioEngine::getInstance()->playBackgroundMusic("sound/overwatch - main theme victory theme (guitar remix).mp3");
+	SimpleAudioEngine::getInstance()->playBackgroundMusic("overwatch - main theme victory theme (guitar remix).mp3");
 
 	// 저장소를 불러옵니다. 저장소가 없다면 Score는 0에서 시작합니다!
 	Score = UserDefault::getInstance()->getFloatForKey("SCORE", 0);
@@ -98,10 +98,6 @@ void GameScene::update(float delta)
 	Tile_Background->update(delta);
 	horse->update(delta);
 	man->update(delta, this);
-<<<<<<< HEAD
-=======
-	objects->update(delta);
->>>>>>> 33dbd04960c42cf47d6a0cbfe91e9d4ac2f16e65
 	pattern->update(delta);
 	InGame_UI->update(delta);
 	for (int i = 0; i < 10; i++)

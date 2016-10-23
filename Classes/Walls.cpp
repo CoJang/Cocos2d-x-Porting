@@ -1,5 +1,7 @@
 #include "Walls.h"
 #include "WELLRAND.h"
+#include "Pattern.h"
+#include "Man.h"
 
 USING_NS_CC;
 
@@ -8,8 +10,11 @@ Walls::Walls()
 	Wall = new Sprite;
 	BreakWall = new Action;
 	ani = new Animator;
+	seq = new Sequence;
+
 	WallScale = 0.7f;
 	IsActionPlaying = false;
+	IsManAttack = false;
 }
 
 Walls::~Walls()
@@ -31,6 +36,7 @@ Walls* Walls::InitWalls(cocos2d::Layer* scene)
 	char* TextFile = &txtfilename[0];
 
 	BreakWall = ani->MakeAnimateAction(0.03f, TextFile);
+	//seq = Sequence::create(BreakWall, RemoveSelf::create(true), nullptr);
 
 	Wall = Sprite::create(ID);
 
@@ -68,9 +74,13 @@ void Walls::update(float delta)
 
 	Wall->setPositionY(sprYpos - delta * 700);
 
-	if (sprYpos < -150 && !IsActionPlaying)
+	if (sprYpos < -150 && !IsActionPlaying && man->IsAttack)
 	{
 		IsActionPlaying = true;
 		Wall->runAction(BreakWall);
+	}
+	else if (sprYpos < -150 && !man->IsAttack && !IsActionPlaying)
+	{
+		Director::getInstance()->pause();
 	}
 }

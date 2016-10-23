@@ -80,7 +80,6 @@ bool GameScene::init()
 	horse = new Horse;
 	horse->InitHorse(this);
 
-	man = new Man;
 	pattern->AddCallback(Man::touchEndCallbackRunner, man);
 	man->InitMan(this);
 
@@ -94,7 +93,9 @@ bool GameScene::init()
 	this->addChild(ScoreLabel, 6, "ScoreLabel");
 
 	scheduleUpdate();
+
     return true;
+
 }
 
 void GameScene::update(float delta)

@@ -21,9 +21,12 @@ public:
 	Label* _labelLoading;
 	Label* _labelPercent;
 
+	//bool VideoFinished;
 private:
 	int _numberOfSprites;
 	int _numberOfLoadedSprites;
+
+	//bool LoadSucceced;
 
 	Animator* Title_Animation;
 	Animate*  Title_Action;

@@ -15,8 +15,11 @@ public:
 	Action* BreakWall;
 	Animator* ani;
 
+	Sequence* seq;
+
 	float   WallScale;
 	bool	IsActionPlaying;
+	bool	IsManAttack;
 
 public:
 	Walls* InitWalls(cocos2d::Layer* scene);

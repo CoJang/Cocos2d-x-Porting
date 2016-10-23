@@ -18,20 +18,21 @@ Horse::~Horse()
 
 Horse* Horse::InitHorse(cocos2d::Layer* scene)
 {
-	Head = Head->InitAnimation(scene, 0.05f, "horse_head.txt");
+	Head = Head->InitAnimation(scene, 0.07f, "horse_head.txt");
 
 	Head->setAnchorPoint(Vec2(0.5f, 0));
 	Head->setPosition(Vec2(640, 0));
 
-	Body = Body->InitAnimation(scene, 0.05f, "horse_body.txt");
+	Legs = Legs->InitAnimation(scene, 0.07f, "horse_legs.txt");
+
+	Legs->setAnchorPoint(Vec2(0.5f, 0));
+	Legs->setPosition(Vec2(640, 0));
+
+	Body = Body->InitAnimation(scene, 0.07f, "horse_body.txt");
 
 	Body->setAnchorPoint(Vec2(0.5f, 0));
 	Body->setPosition(Vec2(640, 0));
 
-	Legs = Legs->InitAnimation(scene, 0.05f, "horse_legs.txt");
-
-	Legs->setAnchorPoint(Vec2(0.5f, 0));
-	Legs->setPosition(Vec2(640, 0));
 
 	return this;
 }

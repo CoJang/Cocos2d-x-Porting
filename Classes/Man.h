@@ -36,3 +36,5 @@ public:
 	static inline void touchEndCallbackRunner(Pattern::PATTERN_NAME index, void* obj) 
 									{ reinterpret_cast<Man*>(obj)->touchEndCallback(index); }
 };
+
+extern Man* man;

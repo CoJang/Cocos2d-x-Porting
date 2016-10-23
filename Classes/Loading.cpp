@@ -10,6 +10,8 @@ using namespace cocostudio::timeline;
 
 USING_NS_CC;
 
+//bool g_bVideoFinished = false;
+
 Scene* Loading::createScene()
 {
 	auto scene = Scene::create();
@@ -34,8 +36,10 @@ bool Loading::init()
 
 	Title_Animation = new Animator;
 	Title_Action = new Animate;
+	//LoadSucceced = false;
+	
 
-	//Title_Action = Title_Animation->MakeAnimate(0.033f, "title.txt");
+	Title_Action = Title_Animation->MakeAnimate(0.033f, "title.txt");
 
 	auto size = Director::getInstance()->getWinSize();
 
@@ -47,20 +51,21 @@ bool Loading::init()
 
 	this->addChild(bg);*/
 
-	//auto bg = Sprite::create();
-	//bg->setAnchorPoint(Vec2(0.0f, 0.0f));
-	//bg->setPosition(Vec2(0, 0));
+	auto bg = Sprite::create();
+	bg->setAnchorPoint(Vec2(0.0f, 0.0f));
+	bg->setPosition(Vec2(0, 0));
 
-	//auto ChangeScene = CallFunc::create([]()
-	//{
-	//	Director::getInstance()->replaceScene(GameScene::createScene()); // 씬전환
-	//});
+	auto ChangeScene = CallFunc::create([]()
+	{
+		//g_bVideoFinished = true;
+		Director::getInstance()->replaceScene(GameScene::createScene()); // 씬전환
+	});
 
-	//auto seq = Sequence::create(Title_Action, ChangeScene, nullptr);
+	auto seq = Sequence::create(Title_Action, ChangeScene, nullptr);
 
-	//bg->runAction(seq);
+	bg->runAction(seq);
 
-	//this->addChild(bg);
+	this->addChild(bg);
 
 	auto _labelLoading = Label::create("Loading...", "hymocpanl.ttf", 30);
 	auto _labelPercent = Label::create("0%", "hymocpanl.ttf", 30);
@@ -156,14 +161,17 @@ void Loading::loadingCallBack(cocos2d::Texture2D *texture)
 	_labelPercent->setString(tmp);
 
 
-	if (_numberOfLoadedSprites == _numberOfSprites)//텍스쳐를다불러오면
+	if (_numberOfLoadedSprites == _numberOfSprites) //텍스쳐를다불러오면
 	{
-			SimpleAudioEngine::getInstance()->preloadBackgroundMusic("overwatch - main theme victory theme (guitar remix).mp3"); // 배경음이랑 효과음도 미리 넣어둔다
-			SimpleAudioEngine::getInstance()->preloadBackgroundMusic("overwatch - trailer theme - short ver. (classical guitar cover).mp3");
+
+		SimpleAudioEngine::getInstance()->preloadBackgroundMusic("overwatch - main theme victory theme (guitar remix).mp3"); // 배경음이랑 효과음도 미리 넣어둔다
+		SimpleAudioEngine::getInstance()->preloadBackgroundMusic("overwatch - trailer theme - short ver. (classical guitar cover).mp3");
 			//SimpleAudioEngine::getInstance()->preloadEffect("sound/click2.wav"); // 효과음 불러오기
 			
 
-			Director::getInstance()->replaceScene(GameScene::createScene());// 씬전환
+
+			
+		Director::getInstance()->replaceScene(GameScene::createScene()); // 씬전환
 			//Director::getInstance()->replaceScene(LobbyScene::createScene());// 씬전환
 	}
 }

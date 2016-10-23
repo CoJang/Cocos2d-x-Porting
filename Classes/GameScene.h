@@ -15,7 +15,6 @@ class GameScene : public cocos2d::Layer
 {
 public:
 	Horse* horse;
-	Man*   man;
 	UI*	   InGame_UI;
 	tile_background* Tile_Background;
 	Pattern*	pattern;

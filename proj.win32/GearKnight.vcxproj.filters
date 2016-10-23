@@ -67,7 +67,7 @@
       <Filter>src\SYSTEMS</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Loading.cpp">
-      <Filter>src\SYSTEMS</Filter>
+      <Filter>src\SCENES</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -114,7 +114,7 @@
       <Filter>src\SYSTEMS</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Loading.h">
-      <Filter>src\SYSTEMS</Filter>
+      <Filter>src\SCENES</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -3,6 +3,7 @@
 #include "Animator.h"
 #include "MyCamera.h"
 #include "cocostudio/CocoStudio.h"
+#include "SimpleAudioEngine.h"
 #include "ui/CocosGUI.h"
 
 #include <stdio.h>
@@ -11,7 +12,9 @@
 #include <assert.h>
 
 USING_NS_CC;
+
 using namespace cocostudio::timeline;
+using namespace CocosDenshion;
 
 Scene* LobbyScene::createScene()
 {
@@ -24,6 +27,8 @@ Scene* LobbyScene::createScene()
     // add layer as a child to scene
 	LobbyScene->addChild(LobbySceneLayer);
 
+	SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+
     // return the scene
     return LobbyScene;
 }
@@ -35,6 +40,8 @@ bool LobbyScene::init()
         return false;
     }
     
+	SimpleAudioEngine::getInstance()->playBackgroundMusic("changhee.mp3");
+
     // 카메라 [ 이 뒤에 생성되는 개체는 카메라의 영향을 안받는다. ]
     {
         // 카메라 넘버 지정. [ 이 씬에서는 이 카메라를 쓴다. ]

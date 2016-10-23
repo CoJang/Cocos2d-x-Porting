@@ -35,18 +35,24 @@ Animator::~Animator()
 }
 
 // txt에서 정보를 읽어옴. 어으웜
-int readline(char* dest, const char* src)
+int readline(char* dest, const char* src, const unsigned char* fileData, ssize_t fileSize)
 {
-	int countchar = 0;	// [ 읽어온 글자의 갯수를 저장 ]
+ 	int countchar = 0;	// [ 읽어온 글자의 갯수를 저장 ]
 
 	for (; *src != '\n'; ++src, ++countchar)
 	{
 		if (*src == '\r')
 			continue;	// [ \r를 만나면 다시 시작 ]
 
-		*dest++ = *src; // [ src를 dest에 대입해준 후, dest를 증가시킨다(다음 글자로). ] 
+		*dest = *src; // [ src를 dest에 대입해준 후, dest를 증가시킨다(다음 글자로). ] 
+
+		if (src - (const char*)fileData >= fileSize)return -1;
+
+		*dest++;
 	}
 	*dest = '\0';		// [ 포문에서 누락된 \0을 dest에 입력 시켜줌. ]
+
+	//i - (const char*)fileData
 
 	return countchar;	// [ 읽어온 글자 수를 반환함. ]
 }
@@ -78,7 +84,8 @@ bool Animator::p_ReadInfo(const char* imageFile)
 
 	ssize_t fileSize;
 	const unsigned char* fileData = nullptr;
-	char line[260];
+	char line[1024];
+	int ret;
 	int pagecount;
 
 	fileData = FileUtils::getInstance()->getFileData(imageFile, "rb", &fileSize);	// [ fileData에 받아온 이미지파일의 정보를 읽음. rb = read binary ]
@@ -86,8 +93,9 @@ bool Animator::p_ReadInfo(const char* imageFile)
 
 	for (const char* i = (const char*)fileData; i - (const char*)fileData < fileSize;)
 	{
-		i += readline(line, i);
-		++i;
+		ret = readline(line, i, fileData, fileSize);
+		if (ret < 0)goto END_FUNC;
+		i += ret + 1;
 		if (*line == '\0') continue;
 
 		if (readState == READ_OBJECT) {
@@ -109,9 +117,17 @@ bool Animator::p_ReadInfo(const char* imageFile)
 			for (int j = 0; j < pagecount; ++j) {
 				sscanf(line, "%s %i,%i", TextureTable[j].name, &TextureTable[j].width, &TextureTable[j].height);
 				for (;;) {
-					i += readline(line, i);
-					++i;
-					if (*line == '\0')break;
+					ret = readline(line, i, fileData, fileSize);
+					if (ret < 0)goto END_FUNC;
+					i += ret + 1;
+
+					if (*line == '\0') {
+						ret = readline(line, i, fileData, fileSize);
+						if (ret < 0)goto END_FUNC;
+						i += ret + 1;
+
+						break;
+					}
 
 					size_t ind;
 					int x, y, width, height;
@@ -120,6 +136,8 @@ bool Animator::p_ReadInfo(const char* imageFile)
 					FrameTable[ind].texInd = j;
 					FrameTable[ind].rt.setRect(x, y, width, height);
 				}
+
+				//if (i - (const char*)fileData >= fileSize)
 			}
 
 			readState = READ_END;
@@ -127,6 +145,7 @@ bool Animator::p_ReadInfo(const char* imageFile)
 		}
 	}
 
+END_FUNC:
 	delete fileData;
 	return true;
 
@@ -233,13 +252,10 @@ Action* Animator::MakeAnimateAction(float anidelay, char* imagefile)
 
 	animation->setDelayPerUnit(_new->AniDelay);
 
-	//auto sequence = Sequence::create(Animate::create(animation), RemoveSelf::create(), nullptr);
-	//auto sequence = Sequence::create(Animate::create(animation), nullptr);
 
 	_action = Animate::create(animation);
 
-	//_new->runAction(Animate::create(animation));
-	_new->runAction(_action);
+	//_new->runAction(_action);
 
 	return _action;
 
@@ -250,7 +266,7 @@ FAILED_FUNC:
 	return nullptr;
 }
 
-Animator* Animator::InitOnceAnimation(cocos2d::Layer* scene, float anidelay, char* imagefile)
+Animate* Animator::MakeAnimate(float anidelay, char* imagefile)
 {
 	Animator* _new = nullptr;
 
@@ -258,6 +274,8 @@ Animator* Animator::InitOnceAnimation(cocos2d::Layer* scene, float anidelay, cha
 	Animation* animation = nullptr;
 
 	static std::string tmpStr(260, 0);
+
+	Animate* _action;
 
 	_new = new (std::nothrow) Animator();
 	if (!_new)goto FAILED_FUNC;
@@ -273,14 +291,13 @@ Animator* Animator::InitOnceAnimation(cocos2d::Layer* scene, float anidelay, cha
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	for (auto i = TextureTable.begin(), e = TextureTable.end(); i != e; ++i) {
-		tmpStr.clear();
-		tmpStr = imagefile;
-		tmpStr = tmpStr.substr(0, tmpStr.rfind('/'));
-		tmpStr += '/';
-		tmpStr += i->name;
+		//tmpStr.clear();
+		//tmpStr = imagefile;
+		//tmpStr = tmpStr.substr(0, tmpStr.rfind('/'));
+		//tmpStr += '/';
+		//tmpStr += i->name;
 
 		i->texture = TextureCache::getInstance()->addImage(i->name);  // the origin was tmpStr.c_str()
-		i->texture = TextureCache::sharedTextureCache()->addImage(i->name);  // the origin was tmpStr.c_str()
 		if (!i->texture)goto FAILED_FUNC;
 	}
 
@@ -293,13 +310,12 @@ Animator* Animator::InitOnceAnimation(cocos2d::Layer* scene, float anidelay, cha
 
 	animation->setDelayPerUnit(_new->AniDelay);
 
-	//auto sequence = Sequence::create(Animate::create(animation), RemoveSelf::create(), nullptr);
-	//auto sequence = Sequence::create(Animate::create(animation), nullptr);
 
-	_new->runAction(Animate::create(animation));
+	_action = Animate::create(animation);
 
-	scene->addChild(_new, 4, imagefile);
-	return _new;
+	//_new->runAction(_action);
+
+	return _action;
 
 FAILED_FUNC:
 	if (_new)delete _new;

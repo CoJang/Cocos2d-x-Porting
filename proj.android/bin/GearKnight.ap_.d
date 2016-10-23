@@ -8,6 +8,7 @@ D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\bin\res\drawable-
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\bin\res\drawable-mdpi\icon.png \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\bt_pause.png \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\bt_return.png \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\changhee.mp3 \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\fonts \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\garage.png \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\ground.png \
@@ -23,6 +24,7 @@ D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\man_attack
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\man_attack_to_defense0.png \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\man_body.txt \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\man_body0.png \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\man_defense.png \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\man_defense.txt \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\man_defense0.png \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\man_defense_std.txt \
@@ -41,6 +43,23 @@ D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\overwatch 
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\res \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\sky_gradaition.png \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\sky_ground.png \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\title.txt \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\title00.pkm \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\title01.pkm \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\title02.pkm \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\title03.pkm \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\title04.pkm \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\title05.pkm \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\title06.pkm \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\title07.pkm \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\title08.pkm \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\title09.pkm \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\title10.pkm \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\title11.pkm \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\title12.pkm \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\title13.pkm \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\title14.pkm \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\title15.pkm \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\title_logo.png \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\touchspr.png \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\ui.txt \
@@ -50,4 +69,5 @@ D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\ui_lamp0.p
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\fonts\arial.ttf \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\fonts\hymocpanl.ttf \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\fonts\Marker Felt.ttf \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\res\title_logo \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\bin\AndroidManifest.xml \

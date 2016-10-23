@@ -16,9 +16,9 @@ public:
 	//[5]    한 개의 스프라이트가 출력 될 시간
 	//[6, 7] 파일명 [스프라이트, 이미지]
 	static Animator* InitAnimation(cocos2d::Layer* scene, float anidelay, char* imagefile);
-	static Animator* InitOnceAnimation(cocos2d::Layer* scene, float anidelay, char* imagefile);
 
 	static Action* MakeAnimateAction(float anidelay, char* imagefile);
+	static Animate* MakeAnimate(float anidelay, char* imagefile);
 
 
 private:

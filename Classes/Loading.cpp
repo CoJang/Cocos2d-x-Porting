@@ -21,7 +21,7 @@ Scene* Loading::createScene()
 bool Loading::init()
 {
 
-	if (!LayerColor::initWithColor(Color4B::BLACK))
+	if (!Layer::init())
 	{
 		return false;
 	}
@@ -30,15 +30,33 @@ bool Loading::init()
 
 	_numberOfLoadedSprites = 0;
 
+	Title_Animation = new Animator;
+	Title_Action = new Animate;
+
+	Title_Action = Title_Animation->MakeAnimate(0.033f, "title.txt");
+
 	auto size = Director::getInstance()->getWinSize();
 
-	auto bg = Sprite::create("title_logo.png");
-	
-	auto tempcolor = bg->getColor();
+	/*auto bg = Sprite::create("title_logo.png");
 
 	bg->setColor(Color3B(255, 255, 255));
 	bg->setAnchorPoint(Vec2(0.5f, 0.5f));
 	bg->setPosition(Point(640, 360));
+
+	this->addChild(bg);*/
+
+	auto bg = Sprite::create();
+	bg->setAnchorPoint(Vec2(0.0f, 0.0f));
+	bg->setPosition(Vec2(0, 0));
+
+	auto ChangeScene = CallFunc::create([]()
+	{
+		Director::getInstance()->replaceScene(GameScene::createScene()); // 씬전환
+	});
+
+	auto seq = Sequence::create(Title_Action, ChangeScene, nullptr);
+
+	bg->runAction(seq);
 
 	this->addChild(bg);
 
@@ -134,8 +152,7 @@ void Loading::loadingCallBack(cocos2d::Texture2D *texture)
 			//SimpleAudioEngine::getInstance()->preloadEffect("sound/click2.wav"); // 효과음 불러오기
 			
 
-			Director::getInstance()->replaceScene(GameScene::createScene());// 씬전환
+			//Director::getInstance()->replaceScene(GameScene::createScene());// 씬전환
 			//Director::getInstance()->replaceScene(LobbyScene::createScene());// 씬전환
 	}
 }
-

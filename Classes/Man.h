@@ -11,7 +11,6 @@ private:
 	float m_fHeightMover;
 
 public:
-	Animator*	Head;
 	Animator*	Body;
 	Animator*	Legs;
 

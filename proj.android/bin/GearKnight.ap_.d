@@ -16,6 +16,8 @@ D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\horse_body
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\horse_body0.png \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\horse_head.txt \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\horse_head0.png \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\horse_legs.txt \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\horse_legs0.png \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\hymocpanl.ttf \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\MainScene.csb \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\man_attack.txt \
@@ -40,6 +42,7 @@ D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\mountain_g
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\noneani_ui.png \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\object1.png \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\overwatch - main theme victory theme (guitar remix).mp3 \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\overwatch - trailer theme - short ver. (classical guitar cover).mp3 \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\res \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\sky_gradaition.png \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\sky_ground.png \
@@ -66,6 +69,18 @@ D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\ui.txt \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\ui0.png \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\ui_lamp.txt \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\ui_lamp0.png \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\wall_00.png \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\wall_01.png \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\wall_02.png \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\wall_ani_0.txt \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\wall_ani_00.png \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\wall_ani_01.png \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\wall_ani_02.png \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\wall_ani_03.png \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\wall_ani_1.txt \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\wall_ani_10.png \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\wall_ani_11.png \
+D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\wall_ani_12.png \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\fonts\arial.ttf \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\fonts\hymocpanl.ttf \
 D:\Projects\CocosProjects\Porting_Only\GearKnight\proj.android\assets\fonts\Marker Felt.ttf \

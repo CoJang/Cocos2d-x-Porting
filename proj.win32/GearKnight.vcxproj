@@ -157,6 +157,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\tile_background.cpp" />
     <ClCompile Include="..\Classes\TouchChecker.cpp" />
     <ClCompile Include="..\Classes\UI.cpp" />
+    <ClCompile Include="..\Classes\Walls.cpp" />
     <ClCompile Include="..\Classes\WELLRAND.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -174,6 +175,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\tile_background.h" />
     <ClInclude Include="..\Classes\TouchChecker.h" />
     <ClInclude Include="..\Classes\UI.h" />
+    <ClInclude Include="..\Classes\Walls.h" />
     <ClInclude Include="..\Classes\WELLRAND.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>

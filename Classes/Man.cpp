@@ -5,7 +5,6 @@ USING_NS_CC;
 Man::Man()
 	: 
 	m_Level(1),
-	Head(new Animator),
 	Body(new Animator),
 	TempBody(new Action),
 	TempBody_shd(new Action),
@@ -22,11 +21,6 @@ Man::~Man()
 
 Man* Man::InitMan(cocos2d::Layer* scene)
 {
-	Head = Head->InitAnimation(scene, 0.07f, "man_head.txt");
-
-	Head->setAnchorPoint(Vec2(0.5f, 0));
-	Head->setPosition(Vec2(640, 0));
-
 	Legs = Legs->InitAnimation(scene, 0.1f, "man_legs.txt");
 
 	Legs->setAnchorPoint(Vec2(0.5f, 0));
@@ -59,7 +53,6 @@ void Man::MoveMan(float delta)
 	m_fHeightMover += delta * speed;
 	if (m_fHeightMover > 2 * PI)m_fHeightMover = 0;
 
-	Head->setPosition(Vec2(640, fHeight));
 	Body->setPosition(Vec2(640, fHeight));
 	Legs->setPosition(Vec2(640, fHeight));
 }
@@ -73,19 +66,16 @@ void Man::touchEndCallback(Pattern::PATTERN_NAME index)
 	switch (index) 
 	{
 	  case Pattern::PATTERN_NAME::PN_SPEED_INCREASE: 
-			Head->setVisible(true);
 			IsAttack = false;
 			IsDefense = false;
 			Body->setColor(Color3B(255, 0, 0));
 			break;
 	  case Pattern::PATTERN_NAME::PN_SPEED_DECREASE:
-			Head->setVisible(true);
 			IsAttack = false;
 			IsDefense = false;
 			Body->setColor(Color3B(255, 255, 0));
 			break;
 	  case Pattern::PATTERN_NAME::PN_USE_SKILL:
-			Head->setVisible(true);
 			IsAttack = false;
 			IsDefense = false;
 			Body->setColor(Color3B(255, 0, 255));
@@ -93,7 +83,6 @@ void Man::touchEndCallback(Pattern::PATTERN_NAME index)
 	  case Pattern::PATTERN_NAME::PN_GUARDED:
 			TempBody = MakeAnimateAction(0.1f, "man_defense.txt");
 			Body->stopAllActions();
-			Head->setVisible(false);
 			Body->runAction(TempBody);
 			IsAttack = false;
 			IsDefense = true;
@@ -104,7 +93,6 @@ void Man::touchEndCallback(Pattern::PATTERN_NAME index)
 	  case Pattern::PATTERN_NAME::PN_CHANGED_ATTACK_POSE04:
 			TempBody = MakeAnimateAction(0.1f, "man_attack.txt");
 			Body->stopAllActions();
-			Head->setVisible(false);
 			Body->runAction(TempBody);
 			IsAttack = true;
 			IsDefense = false;

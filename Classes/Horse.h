@@ -12,6 +12,7 @@ private:
 public:
 	Animator*	Head;
 	Animator*	Body;
+	Animator*	Legs;
 
 	float	  m_Level;
 

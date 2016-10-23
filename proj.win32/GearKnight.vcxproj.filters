@@ -69,6 +69,9 @@
     <ClCompile Include="..\Classes\Loading.cpp">
       <Filter>src\SCENES</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Walls.cpp">
+      <Filter>src\UNITS</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -115,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Loading.h">
       <Filter>src\SCENES</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Walls.h">
+      <Filter>src\UNITS</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

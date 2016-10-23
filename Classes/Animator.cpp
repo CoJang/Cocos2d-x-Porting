@@ -177,11 +177,11 @@ Animator* Animator::InitAnimation(cocos2d::Layer* scene, float anidelay, char* i
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	for (auto i = TextureTable.begin(), e = TextureTable.end(); i != e; ++i) {
-		tmpStr.clear();
-		tmpStr = imagefile;
-		tmpStr = tmpStr.substr(0, tmpStr.rfind('/'));
-		tmpStr += '/';
-		tmpStr += i->name;
+		//tmpStr.clear();
+		//tmpStr = imagefile;
+		//tmpStr = tmpStr.substr(0, tmpStr.rfind('/'));
+		//tmpStr += '/';
+		//tmpStr += i->name;
 
 		i->texture = TextureCache::getInstance()->addImage(i->name);  // the origin was tmpStr.c_str()
 		if (!i->texture)goto FAILED_FUNC;
@@ -233,11 +233,11 @@ Action* Animator::MakeAnimateAction(float anidelay, char* imagefile)
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	for (auto i = TextureTable.begin(), e = TextureTable.end(); i != e; ++i) {
-		tmpStr.clear();
-		tmpStr = imagefile;
-		tmpStr = tmpStr.substr(0, tmpStr.rfind('/'));
-		tmpStr += '/';
-		tmpStr += i->name;
+		//tmpStr.clear();
+		//tmpStr = imagefile;
+		//tmpStr = tmpStr.substr(0, tmpStr.rfind('/'));
+		//tmpStr += '/';
+		//tmpStr += i->name;
 
 		i->texture = TextureCache::getInstance()->addImage(i->name);  // the origin was tmpStr.c_str()
 		if (!i->texture)goto FAILED_FUNC;
@@ -255,7 +255,7 @@ Action* Animator::MakeAnimateAction(float anidelay, char* imagefile)
 
 	_action = Animate::create(animation);
 
-	//_new->runAction(_action);
+	_new->runAction(_action);
 
 	return _action;
 
@@ -313,7 +313,7 @@ Animate* Animator::MakeAnimate(float anidelay, char* imagefile)
 
 	_action = Animate::create(animation);
 
-	//_new->runAction(_action);
+	_new->runAction(_action);
 
 	return _action;
 

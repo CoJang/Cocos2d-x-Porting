@@ -27,8 +27,6 @@ Scene* LobbyScene::createScene()
     // add layer as a child to scene
 	LobbyScene->addChild(LobbySceneLayer);
 
-	SimpleAudioEngine::getInstance()->stopBackgroundMusic();
-
     // return the scene
     return LobbyScene;
 }
@@ -39,8 +37,8 @@ bool LobbyScene::init()
     {
         return false;
     }
-    
-	SimpleAudioEngine::getInstance()->playBackgroundMusic("changhee.mp3");
+
+	SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 
     // 카메라 [ 이 뒤에 생성되는 개체는 카메라의 영향을 안받는다. ]
     {
@@ -65,7 +63,10 @@ bool LobbyScene::init()
 
 	this->addChild(background, 1, "background");
 
+	SimpleAudioEngine::getInstance()->playBackgroundMusic("overwatch - trailer theme - short ver. (classical guitar cover).mp3");
+
 	scheduleUpdate();
+
     return true;
 }
 

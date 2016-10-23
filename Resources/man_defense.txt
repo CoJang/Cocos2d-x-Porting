@@ -1,10 +1,10 @@
 objectCount 6
-0 d:\Users\bbh10\Desktop\drive-download-20161017T142546Z\1.png
-1 d:\Users\bbh10\Desktop\drive-download-20161017T142546Z\2.png
-2 d:\Users\bbh10\Desktop\drive-download-20161017T142546Z\3.png
-3 d:\Users\bbh10\Desktop\drive-download-20161017T142546Z\4.png
-4 d:\Users\bbh10\Desktop\drive-download-20161017T142546Z\5.png
-5 d:\Users\bbh10\Desktop\drive-download-20161017T142546Z\5-1.png
+0 d:\Users\bbh10\Desktop\规绢\1.png
+1 d:\Users\bbh10\Desktop\规绢\2.png
+2 d:\Users\bbh10\Desktop\规绢\3.png
+3 d:\Users\bbh10\Desktop\规绢\4.png
+4 d:\Users\bbh10\Desktop\规绢\5.png
+5 d:\Users\bbh10\Desktop\规绢\5-1.png
 
 pageCount 1
 

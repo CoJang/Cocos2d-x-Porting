@@ -25,6 +25,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 				   ../../Classes/TouchChecker.cpp \
 				   ../../Classes/WELLRAND.cpp \
 				   ../../Classes/Loading.cpp \
+				   ../../Classes/Walls.cpp \
                    ../../Classes/AppDelegate.cpp
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes

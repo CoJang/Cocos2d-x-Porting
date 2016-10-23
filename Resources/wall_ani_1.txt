@@ -1,0 +1,66 @@
+objectCount 28
+0 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00000.png
+1 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00001.png
+2 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00002.png
+3 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00003.png
+4 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00004.png
+5 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00005.png
+6 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00006.png
+7 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00007.png
+8 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00008.png
+9 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00009.png
+10 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00010.png
+11 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00011.png
+12 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00012.png
+13 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00013.png
+14 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00014.png
+15 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00015.png
+16 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00016.png
+17 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00017.png
+18 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00018.png
+19 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00019.png
+20 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00020.png
+21 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00021.png
+22 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00022.png
+23 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00023.png
+24 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00024.png
+25 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00025.png
+26 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00026.png
+27 d:\Users\bbh10\Desktop\시멘트벽부숨\벽파괴(시멘트재질)_00027.png
+
+pageCount 3
+
+wall_ani_10.png 3000,2500
+object0 1500,500 0,0
+object1 1500,500 1500,0
+object2 1500,500 0,500
+object3 1500,500 1500,500
+object4 1500,500 0,1000
+object5 1500,500 1500,1000
+object6 1500,500 0,1500
+object7 1500,500 1500,1500
+object8 1500,500 0,2000
+object9 1500,500 1500,2000
+
+wall_ani_11.png 3000,2500
+object10 1500,500 0,0
+object11 1500,500 1500,0
+object12 1500,500 0,500
+object13 1500,500 1500,500
+object14 1500,500 0,1000
+object15 1500,500 1500,1000
+object16 1500,500 0,1500
+object17 1500,500 1500,1500
+object18 1500,500 0,2000
+object19 1500,500 1500,2000
+
+wall_ani_12.png 3000,2000
+object20 1500,500 0,0
+object21 1500,500 1500,0
+object22 1500,500 0,500
+object23 1500,500 1500,500
+object24 1500,500 0,1000
+object25 1500,500 1500,1000
+object26 1500,500 0,1500
+object27 1500,500 1500,1500
+

@@ -7,6 +7,7 @@
 #include "tile_background.h"
 #include "Objects.h"
 #include "Pattern.h"
+#include "Walls.h"
 
 USING_NS_CC;
 
@@ -17,8 +18,11 @@ public:
 	Man*   man;
 	UI*	   InGame_UI;
 	tile_background* Tile_Background;
-	Objects*	objects[10];
 	Pattern*	pattern;
+
+	Objects*	objects[10];
+	Walls*		walls[10];
+	//Walls*		walls;
 
 	float		Score;		// 점수 저장
 	Label*		ScoreLabel;	// 점수를 띄워줄 라벨.

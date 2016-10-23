@@ -6,7 +6,8 @@ Horse::Horse()
 	: 
 	m_Level(1),
 	Head(new Animator),
-	Body(new Animator)
+	Body(new Animator),
+	Legs(new Animator)
 {
 	m_fHeightMover = 0;
 }
@@ -27,6 +28,11 @@ Horse* Horse::InitHorse(cocos2d::Layer* scene)
 	Body->setAnchorPoint(Vec2(0.5f, 0));
 	Body->setPosition(Vec2(640, 0));
 
+	Legs = Legs->InitAnimation(scene, 0.05f, "horse_legs.txt");
+
+	Legs->setAnchorPoint(Vec2(0.5f, 0));
+	Legs->setPosition(Vec2(640, 0));
+
 	return this;
 }
 
@@ -43,6 +49,7 @@ void Horse::update(float delta)
 
 	Head->setPosition(Vec2(640, fHeight));
 	Body->setPosition(Vec2(640, fHeight));
+	Legs->setPosition(Vec2(640, fHeight));
 
 	Sprite::update(delta);
 }

@@ -14,7 +14,9 @@ Objects::~Objects()
 
 Objects* Objects::InitObjects(cocos2d::Layer* scene)
 {
-	unsigned int random_x = MakeRandWithRange(100);
+	unsigned int LeftorRight = MakeRandWithRange(0, 1);
+	unsigned int random_x = MakeRandWithRange(0, 4);
+	unsigned int random_y = MakeRandWithRange(3, 100);
 
 	SideObject = Sprite::create("object1.png");
 
@@ -25,7 +27,7 @@ Objects* Objects::InitObjects(cocos2d::Layer* scene)
 	SideObject->setScale(ObjectScale, ObjectScale);
 	SideObject->setRotation3D(Vec3(70, 0, 0));
 
-	SideObject->setPosition(1100, random_x * 600);
+	SideObject->setPosition(LeftorRight * 1000 + random_x * 50, random_y * 600);
 
 	scene->addChild(SideObject);
 	return this;
@@ -47,6 +49,6 @@ void Objects::update(float delta)
 		SideObject->setScale(ObjectScale, ObjectScale);
 	}
 
-	SideObject->setPositionY(sprYpos - delta * 500);
+	SideObject->setPositionY(sprYpos - delta * 700);
 
 }

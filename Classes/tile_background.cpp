@@ -63,7 +63,7 @@ void tile_background::update(float delta)
 
 	static float scroll = rt.size.height;
 
-	scroll -= delta * 1000.f;
+	scroll -= delta * 1300.f;
 	if (scroll < 0)
 		scroll = rt.size.height;
 

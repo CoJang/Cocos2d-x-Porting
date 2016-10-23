@@ -48,7 +48,12 @@ bool GameScene::init()
 	{
 		objects[i] = new Objects;
 		objects[i]->InitObjects(this);
+
+		walls[i] = new Walls;
+		walls[i]->InitWalls(this);
 	}
+	//walls = new Walls;
+	//walls->InitWalls(this);
     
     // 카메라 [ 이 뒤에 생성되는 개체는 카메라의 영향을 안받는다. ]
     {
@@ -100,10 +105,13 @@ void GameScene::update(float delta)
 	man->update(delta, this);
 	pattern->update(delta);
 	InGame_UI->update(delta);
+
 	for (int i = 0; i < 10; i++)
 	{
 		objects[i]->update(delta);
+		walls[i]->update(delta);
 	}
+	//walls->update(delta);
 }
 
 bool GameScene::onTouchBegan(Touch* touch, Event* unused_event)
@@ -113,15 +121,17 @@ bool GameScene::onTouchBegan(Touch* touch, Event* unused_event)
 	pattern->IsTouched(touchlocate);
 	InGame_UI->IsTouched(touchlocate);
 
-	Scene* Lobby = LobbyScene::createScene();
 
-	if(InGame_UI->ReturnOn)		// 씬 전환
+	if (InGame_UI->ReturnOn) // 씬 전환
+	{
+		Scene* Lobby = LobbyScene::createScene();
 		Director::getInstance()->pushScene(Lobby);
+	}
 
 	if(!InGame_UI->PauseOff)	// 배경음악 일시정지 <-> 일시정지 해제
 		SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
-	else if(InGame_UI->PauseOff)
-		SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+	//else if(InGame_UI->PauseOff)
+	//	SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
 
 	return true;
 }

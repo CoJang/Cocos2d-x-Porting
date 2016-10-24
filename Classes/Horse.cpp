@@ -54,3 +54,10 @@ void Horse::update(float delta)
 
 	Sprite::update(delta);
 }
+
+void Horse::StopAnimations()
+{
+	Head->stopAllActions();
+	Body->stopAllActions();
+	Legs->stopAllActions();
+}

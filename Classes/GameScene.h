@@ -1,5 +1,7 @@
 #pragma once
 #include "cocos2d.h"
+#include "ui/CocosGUI.h"
+#include "PauseLayer.h"
 #include "Animator.h"
 #include "Horse.h"
 #include "Man.h"
@@ -26,6 +28,8 @@ public:
 	float		Score;		// 점수 저장
 	Label*		ScoreLabel;	// 점수를 띄워줄 라벨.
 
+	bool		IsStop;
+
 public:
     static cocos2d::Scene* createScene();
 
@@ -34,6 +38,8 @@ public:
     CREATE_FUNC(GameScene);
 
 public:
+	void MakePauseLayer(cocos2d::Layer* scene);
+
     // Scene내의 모든 객체의 update를 담당
     void update(float delta);
 	void updateScore(float delta);

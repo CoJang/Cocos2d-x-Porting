@@ -72,6 +72,9 @@
     <ClCompile Include="..\Classes\Walls.cpp">
       <Filter>src\UNITS</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\PauseLayer.cpp">
+      <Filter>src\SCENES</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -121,6 +124,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Walls.h">
       <Filter>src\UNITS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PauseLayer.h">
+      <Filter>src\SCENES</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

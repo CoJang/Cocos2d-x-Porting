@@ -22,4 +22,6 @@ public:
 	Horse* InitHorse(cocos2d::Layer* scene);
 
 	virtual void update(float delta);
+
+	void StopAnimations();
 };

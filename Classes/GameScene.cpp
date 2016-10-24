@@ -1,3 +1,4 @@
+#include "PauseLayer.h"
 #include "GameScene.h"
 #include "LobbyScene.h"
 #include "Animator.h"
@@ -33,8 +34,10 @@ bool GameScene::init()
     {
         return false;
     }
+	IsStop = false;
+
 	// 배경음을 플레이합니다.
-	SimpleAudioEngine::getInstance()->playBackgroundMusic("overwatch - main theme victory theme (guitar remix).mp3");
+	//SimpleAudioEngine::getInstance()->playBackgroundMusic("overwatch - main theme victory theme (guitar remix).mp3");
 
 	// 저장소를 불러옵니다. 저장소가 없다면 Score는 0에서 시작합니다!
 	Score = UserDefault::getInstance()->getFloatForKey("SCORE", 0);
@@ -86,6 +89,9 @@ bool GameScene::init()
 	InGame_UI = new UI;
 	InGame_UI->InitUI(this);
 
+	pauselayer = new PauseLayer;
+	pauselayer->init();
+
 	// 스코어 출력 라벨.
 	ScoreLabel = Label::createWithTTF("", "hymocpanl.ttf", 40);
 	ScoreLabel->setPosition(Vec2(310.0f, 695.0f));
@@ -103,16 +109,28 @@ void GameScene::update(float delta)
 	updateScore(delta);
 	Tile_Background->update(delta);
 	horse->update(delta);
-	man->update(delta, this);
+	man->update(delta);
 	pattern->update(delta);
 	InGame_UI->update(delta);
 
 	for (int i = 0; i < 10; i++)
 	{
 		objects[i]->update(delta);
-		walls[i]->update(delta);
+		walls[i]->update(delta, this);
+
+		if (walls[i]->IsPaused)
+			IsStop = true;
 	}
-	//walls->update(delta);
+	if (IsStop)
+	{
+		man->StopAnimations();
+		horse->StopAnimations();
+		InGame_UI->StopAnimations();
+		unscheduleUpdate();
+
+		this->addChild(pauselayer, 10, "Pause");
+	}
+
 }
 
 bool GameScene::onTouchBegan(Touch* touch, Event* unused_event)
@@ -121,18 +139,17 @@ bool GameScene::onTouchBegan(Touch* touch, Event* unused_event)
 
 	pattern->IsTouched(touchlocate);
 	InGame_UI->IsTouched(touchlocate);
+	pauselayer->IsTouched(touchlocate);
 
-
-	if (InGame_UI->ReturnOn) // 씬 전환
+	if (!InGame_UI->PauseOff)
 	{
-		Scene* Lobby = LobbyScene::createScene();
-		Director::getInstance()->pushScene(Lobby);
+		man->StopAnimations();
+		horse->StopAnimations();
+		InGame_UI->StopAnimations();
+		unscheduleUpdate();
+		
+		this->addChild(pauselayer, 10, "Pause");
 	}
-
-	if(!InGame_UI->PauseOff)	// 배경음악 일시정지 <-> 일시정지 해제
-		SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
-	//else if(InGame_UI->PauseOff)
-	//	SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
 
 	return true;
 }
@@ -160,4 +177,11 @@ void GameScene::updateScore(float delta)
 	UserDefault::getInstance()->flush();
 
 	ScoreLabel->setString(StringUtils::format("%.1fm", Score));
+}
+
+void GameScene::MakePauseLayer(cocos2d::Layer* scene)
+{
+	auto Pause = PauseLayer::create();
+	Pause->init();
+	scene->addChild(Pause, 10, "Pause");
 }

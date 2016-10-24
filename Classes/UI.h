@@ -11,9 +11,6 @@ public:
 	Animator*	ingame_UI_Lamp;
 	Sprite*		right_ingame_UI;
 
-	Sprite*		BT_Return;
-	bool		ReturnOn;
-
 	Sprite*		BT_Pause;
 	bool		PauseOff;
 
@@ -23,6 +20,8 @@ public:
 	UI* InitUI(cocos2d::Layer* scene);
 
 	void IsTouched(Vec2 touchlocation);
+	void StopAnimations();
+	void RestartAnimations();
 
 	virtual void update(float delta);
 };

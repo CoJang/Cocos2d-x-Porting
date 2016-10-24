@@ -27,7 +27,9 @@ public:
 	Man* InitMan(cocos2d::Layer* scene);
 
 	void MoveMan(float delta);
-	virtual void update(float delta, cocos2d::Layer* scene);
+	void StopAnimations();
+
+	virtual void update(float delta);
 	
 	void touchEndCallback(Pattern::PATTERN_NAME index);
 

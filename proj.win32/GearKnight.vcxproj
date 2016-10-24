@@ -154,6 +154,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\MyCamera.cpp" />
     <ClCompile Include="..\Classes\Objects.cpp" />
     <ClCompile Include="..\Classes\Pattern.cpp" />
+    <ClCompile Include="..\Classes\PauseLayer.cpp" />
     <ClCompile Include="..\Classes\tile_background.cpp" />
     <ClCompile Include="..\Classes\TouchChecker.cpp" />
     <ClCompile Include="..\Classes\UI.cpp" />
@@ -172,6 +173,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\MyCamera.h" />
     <ClInclude Include="..\Classes\Objects.h" />
     <ClInclude Include="..\Classes\Pattern.h" />
+    <ClInclude Include="..\Classes\PauseLayer.h" />
     <ClInclude Include="..\Classes\tile_background.h" />
     <ClInclude Include="..\Classes\TouchChecker.h" />
     <ClInclude Include="..\Classes\UI.h" />

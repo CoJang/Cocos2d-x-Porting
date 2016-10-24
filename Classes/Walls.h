@@ -18,11 +18,17 @@ public:
 	Sequence* seq;
 
 	float   WallScale;
+
 	bool	IsActionPlaying;
 	bool	IsManAttack;
+	bool	IsWallBroken;
+	bool	IsPaused;
+	bool	DidMakeAlert;
 
 public:
 	Walls* InitWalls(cocos2d::Layer* scene);
 
-	virtual void update(float delta);
+	virtual void update(float delta, cocos2d::Layer* scene);
+private:
+	Sprite* MakeAlert(cocos2d::Layer* scene);
 };

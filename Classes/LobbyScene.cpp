@@ -81,7 +81,6 @@ bool LobbyScene::onTouchBegan(Touch* touch, Event* unused_event)
 
 	Scene* Gamescene = GameScene::createScene();
 	Director::getInstance()->pushScene(Gamescene);
-	Director::getInstance()->resume();
 
 	return true;
 }

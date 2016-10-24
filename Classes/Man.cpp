@@ -38,7 +38,7 @@ Man* Man::InitMan(cocos2d::Layer* scene)
 	return this;
 }
 
-void Man::update(float delta, cocos2d::Layer* scene)
+void Man::update(float delta)
 {
 	man->MoveMan(delta);
 
@@ -99,4 +99,10 @@ void Man::touchEndCallback(Pattern::PATTERN_NAME index)
 			man->Body->setColor(Color3B(255, 255, 255));
 			break;
 	}
+}
+
+void Man::StopAnimations()
+{
+	man->Body->stopAllActions();
+	man->Legs->stopAllActions();
 }

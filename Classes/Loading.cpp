@@ -33,15 +33,15 @@ bool Loading::init()
 	//SimpleAudioEngine::getInstance()->playBackgroundMusic("overwatch - trailer theme - short ver. (classical guitar cover).mp3");
 
 	_numberOfLoadedSprites = 0;
-
-	Title_Animation = new Animator;
-	Title_Action = new Animate;
-	//LoadSucceced = false;
-	
-
-	Title_Action = Title_Animation->MakeAnimate(0.033f, "title.txt");
-
 	auto size = Director::getInstance()->getWinSize();
+
+	//Title_Animation = new Animator;
+	//Title_Action = new Animate;
+	////LoadSucceced = false;
+	//
+
+	//Title_Action = Title_Animation->MakeAnimate(0.033f, "title.txt");
+
 
 	/*auto bg = Sprite::create("title_logo.png");
 
@@ -51,21 +51,21 @@ bool Loading::init()
 
 	this->addChild(bg);*/
 
-	auto bg = Sprite::create();
-	bg->setAnchorPoint(Vec2(0.0f, 0.0f));
-	bg->setPosition(Vec2(0, 0));
+	//auto bg = Sprite::create();
+	//bg->setAnchorPoint(Vec2(0.0f, 0.0f));
+	//bg->setPosition(Vec2(0, 0));
 
-	auto ChangeScene = CallFunc::create([]()
-	{
-		//g_bVideoFinished = true;
-		Director::getInstance()->replaceScene(GameScene::createScene()); // 씬전환
-	});
+	//auto ChangeScene = CallFunc::create([]()
+	//{
+	//	//g_bVideoFinished = true;
+	//	Director::getInstance()->replaceScene(GameScene::createScene()); // 씬전환
+	//});
 
-	auto seq = Sequence::create(Title_Action, ChangeScene, nullptr);
+	//auto seq = Sequence::create(Title_Action, ChangeScene, nullptr);
 
-	bg->runAction(seq);
+	//bg->runAction(seq);
 
-	this->addChild(bg);
+	//this->addChild(bg);
 
 	auto _labelLoading = Label::create("Loading...", "hymocpanl.ttf", 30);
 	auto _labelPercent = Label::create("0%", "hymocpanl.ttf", 30);
@@ -83,7 +83,7 @@ bool Loading::init()
 	this->addChild(_labelLoading);
 	this->addChild(_labelPercent);
 	
-	_numberOfSprites = 34; //load1()에있는 불러오는텍스쳐 수대로 적으면 됨
+	_numberOfSprites = 43; //load1()에있는 불러오는텍스쳐 수대로 적으면 됨
 	
 	
 	load1();
@@ -120,8 +120,11 @@ void Loading::load1()
 	Director::getInstance()->getTextureCache()->addImageAsync("touchspr.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
 	Director::getInstance()->getTextureCache()->addImageAsync("ui_lamp0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
 	Director::getInstance()->getTextureCache()->addImageAsync("ui0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("ui_layer.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
 	Director::getInstance()->getTextureCache()->addImageAsync("bt_pause.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
 	Director::getInstance()->getTextureCache()->addImageAsync("bt_return.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("bt_option.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("bt_exit.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
 
 	Director::getInstance()->getTextureCache()->addImageAsync("object1.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
 
@@ -132,6 +135,12 @@ void Loading::load1()
 	Director::getInstance()->getTextureCache()->addImageAsync("wall_ani_01.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
 	Director::getInstance()->getTextureCache()->addImageAsync("wall_ani_02.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
 	Director::getInstance()->getTextureCache()->addImageAsync("wall_ani_03.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("wall_ani_04.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("wall_ani_05.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("wall_ani_06.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("wall_ani_07.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("wall_ani_08.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("wall_ani_09.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
 
 	Director::getInstance()->getTextureCache()->addImageAsync("wall_ani_10.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
 	Director::getInstance()->getTextureCache()->addImageAsync("wall_ani_11.png", CC_CALLBACK_1(Loading::loadingCallBack, this));

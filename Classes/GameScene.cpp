@@ -1,17 +1,5 @@
-#include "PauseLayer.h"
-#include "GameScene.h"
-#include "LobbyScene.h"
-#include "Animator.h"
-#include "MyCamera.h"
-#include "cocostudio/CocoStudio.h"
-#include "SimpleAudioEngine.h"
-#include "ui/CocosGUI.h"
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <assert.h>
-
+#pragma once
+#include "Headers.h"
 
 USING_NS_CC;
 
@@ -44,19 +32,15 @@ bool GameScene::init()
 	//UserDefault::getInstance()->setFloatForKey("SCORE", 0);
 
     // 바닥 화면 [ 사이드 바닥 2개, 메인 바닥 1개, 임시 캐릭터 ]
-	Tile_Background = new tile_background;
 	Tile_Background->InitTile(this);
 
 	for (int i = 0; i < 10; i++)
 	{
 		objects[i] = new Objects;
 		objects[i]->InitObjects(this);
-
-		walls[i] = new Walls;
-		walls[i]->InitWalls(this);
 	}
-	//walls = new Walls;
-	//walls->InitWalls(this);
+	walls = new Walls;
+	walls->InitWalls(this);
     
     // 카메라 [ 이 뒤에 생성되는 개체는 카메라의 영향을 안받는다. ]
     {
@@ -93,7 +77,7 @@ bool GameScene::init()
 	pauselayer->init();
 
 	// 스코어 출력 라벨.
-	ScoreLabel = Label::createWithTTF("", "hymocpanl.ttf", 40);
+	ScoreLabel = Label::createWithTTF("", "fonts/hymocpanl.ttf", 40);
 	ScoreLabel->setPosition(Vec2(310.0f, 695.0f));
 	ScoreLabel->setAnchorPoint(Vec2(1, 1));
 	this->addChild(ScoreLabel, 6, "ScoreLabel");
@@ -116,11 +100,12 @@ void GameScene::update(float delta)
 	for (int i = 0; i < 10; i++)
 	{
 		objects[i]->update(delta);
-		walls[i]->update(delta, this);
-
-		if (walls[i]->IsPaused)
-			IsStop = true;
 	}
+	walls->update(delta, this);
+
+	if (walls->IsPaused)
+		IsStop = true;
+
 	if (IsStop)
 	{
 		man->StopAnimations();

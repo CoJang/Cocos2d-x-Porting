@@ -1,5 +1,5 @@
-#include "UI.h"
-#include "TouchChecker.h"
+#pragma once
+#include "Headers.h"
 
 USING_NS_CC;
 
@@ -19,24 +19,24 @@ UI::~UI()
 
 UI* UI::InitUI(cocos2d::Layer* scene)
 {
-	ingame_UI = ingame_UI->InitAnimation(scene, 0.08f, "ui.txt");
+	ingame_UI = ingame_UI->InitAnimation(scene, 0.08f, "ui/ui.txt");
 
 	ingame_UI->setAnchorPoint(Vec2(0, 0));
 	ingame_UI->setPosition(Vec2(0, 0));
 
-	ingame_UI_Lamp = ingame_UI_Lamp->InitAnimation(scene, 0.08f, "ui_lamp.txt");
+	ingame_UI_Lamp = ingame_UI_Lamp->InitAnimation(scene, 0.08f, "ui/ui_lamp.txt");
 
 	ingame_UI_Lamp->setAnchorPoint(Vec2(0, 0));
 	ingame_UI_Lamp->setPosition(Vec2(0, 0));
 
-	right_ingame_UI = Sprite::create("noneani_ui.png");
+	right_ingame_UI = Sprite::create("ui/noneani_ui.png");
 
 	right_ingame_UI->setAnchorPoint(Vec2(1, 1));
 	right_ingame_UI->setPosition(Vec2(1280, 720));
 
 	scene->addChild(right_ingame_UI, 5, "right_ingame_UI");
 
-	BT_Pause = Sprite::create("bt_pause.png");
+	BT_Pause = Sprite::create("ui/bt_pause.png");
 
 	BT_Pause->setAnchorPoint(Vec2(0, 0));
 	BT_Pause->setPosition(Vec2(1200, 640));

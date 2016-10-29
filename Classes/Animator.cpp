@@ -1,12 +1,5 @@
-#include "Animator.h"
-#include "cocostudio/CocoStudio.h"
-#include "ui/CocosGUI.h"
-
-#include<string>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <assert.h>
+#pragma once
+#include "Headers.h"
 
 USING_NS_CC;
 
@@ -137,7 +130,6 @@ bool Animator::p_ReadInfo(const char* imageFile)
 					FrameTable[ind].rt.setRect(x, y, width, height);
 				}
 
-				//if (i - (const char*)fileData >= fileSize)
 			}
 
 			readState = READ_END;
@@ -177,13 +169,13 @@ Animator* Animator::InitAnimation(cocos2d::Layer* scene, float anidelay, char* i
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	for (auto i = TextureTable.begin(), e = TextureTable.end(); i != e; ++i) {
-		//tmpStr.clear();
-		//tmpStr = imagefile;
-		//tmpStr = tmpStr.substr(0, tmpStr.rfind('/'));
-		//tmpStr += '/';
-		//tmpStr += i->name;
+		tmpStr.clear();
+		tmpStr = imagefile;
+		tmpStr = tmpStr.substr(0, tmpStr.rfind('/'));
+		tmpStr += '/';
+		tmpStr += i->name;
 
-		i->texture = TextureCache::getInstance()->addImage(i->name);  // the origin was tmpStr.c_str()
+		i->texture = TextureCache::getInstance()->addImage(tmpStr.c_str());  // the origin was tmpStr.c_str()
 		if (!i->texture)goto FAILED_FUNC;
 	}
 
@@ -233,13 +225,13 @@ Action* Animator::MakeAnimateAction(float anidelay, char* imagefile)
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	for (auto i = TextureTable.begin(), e = TextureTable.end(); i != e; ++i) {
-		//tmpStr.clear();
-		//tmpStr = imagefile;
-		//tmpStr = tmpStr.substr(0, tmpStr.rfind('/'));
-		//tmpStr += '/';
-		//tmpStr += i->name;
+		tmpStr.clear();
+		tmpStr = imagefile;
+		tmpStr = tmpStr.substr(0, tmpStr.rfind('/'));
+		tmpStr += '/';
+		tmpStr += i->name;
 
-		i->texture = TextureCache::getInstance()->addImage(i->name);  // the origin was tmpStr.c_str()
+		i->texture = TextureCache::getInstance()->addImage(tmpStr.c_str());  // the origin was tmpStr.c_str()
 		if (!i->texture)goto FAILED_FUNC;
 	}
 
@@ -291,13 +283,13 @@ Animate* Animator::MakeAnimate(float anidelay, char* imagefile)
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	for (auto i = TextureTable.begin(), e = TextureTable.end(); i != e; ++i) {
-		//tmpStr.clear();
-		//tmpStr = imagefile;
-		//tmpStr = tmpStr.substr(0, tmpStr.rfind('/'));
-		//tmpStr += '/';
-		//tmpStr += i->name;
+		tmpStr.clear();
+		tmpStr = imagefile;
+		tmpStr = tmpStr.substr(0, tmpStr.rfind('/'));
+		tmpStr += '/';
+		tmpStr += i->name;
 
-		i->texture = TextureCache::getInstance()->addImage(i->name);  // the origin was tmpStr.c_str()
+		i->texture = TextureCache::getInstance()->addImage(tmpStr.c_str());  // the origin was tmpStr.c_str() // i->name
 		if (!i->texture)goto FAILED_FUNC;
 	}
 

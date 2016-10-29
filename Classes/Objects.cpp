@@ -1,5 +1,5 @@
-#include "Objects.h"
-#include "WELLRAND.h"
+#pragma once
+#include "Headers.h"
 
 USING_NS_CC;
 
@@ -18,7 +18,7 @@ Objects* Objects::InitObjects(cocos2d::Layer* scene)
 	unsigned int random_x = MakeRandWithRange(0, 4);
 	unsigned int random_y = MakeRandWithRange(3, 100);
 
-	SideObject = Sprite::create("object1.png");
+	SideObject = Sprite::create("object/object1.png");
 
 	if (SideObject == nullptr)
 		return false;

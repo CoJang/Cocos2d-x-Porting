@@ -1,6 +1,5 @@
-#include "Pattern.h"
-#include "GameScene.h"
-#include "TouchChecker.h"
+#pragma once
+#include "Headers.h"
 
 USING_NS_CC;
 
@@ -99,7 +98,7 @@ Pattern* Pattern::InitPattern(cocos2d::Layer* scene)
 	{
 		for (int j = 0; j < 3; j++)
 		{
-			Circle[i*3 + j].sprite = Sprite::create("touchspr.png");
+			Circle[i*3 + j].sprite = Sprite::create("ui/touchspr.png");
 
 			Circle[i*3 + j].sprite->setAnchorPoint(Vec2(0, 0));
 			Circle[i*3 + j].sprite->setPosition(Vec2(830 + (j * 150), 400 - (i * 150)));

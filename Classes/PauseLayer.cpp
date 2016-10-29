@@ -1,8 +1,5 @@
-#include "cocos2d.h"
-#include "ui/CocosGUI.h"
-#include "PauseLayer.h"
-#include "MyCamera.h"
-#include "TouchChecker.h"
+#pragma once
+#include "Headers.h"
 
 PauseLayer* pauselayer = nullptr;
 
@@ -28,7 +25,7 @@ bool PauseLayer::init()
 	touchListener->onTouchBegan = CC_CALLBACK_2(PauseLayer::onTouch, this);
 	director->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
 
-	auto Spr = Sprite::create("ui_layer.png");
+	auto Spr = Sprite::create("ui/ui_layer.png");
 	Spr->setAnchorPoint(Vec2(0.5f, 0.5f));
 	Spr->setPosition(Vec2(640, 360));
 	Spr->setScale(0.7f, 0.7f);
@@ -36,7 +33,7 @@ bool PauseLayer::init()
 	pauselayer->addChild(Spr);
 
 	pauselayer->bt_return = new Sprite;
-	pauselayer->bt_return = Sprite::create("bt_return.png");
+	pauselayer->bt_return = Sprite::create("ui/bt_return.png");
 	pauselayer->bt_return->setAnchorPoint(Vec2(0, 0));
 	pauselayer->bt_return->setPosition(Vec2(590, 310));
 	//bt_return->setScale(1.7f, 1.7f);
@@ -44,7 +41,7 @@ bool PauseLayer::init()
 	pauselayer->addChild(bt_return);
 
 	pauselayer->bt_option = new Sprite;
-	pauselayer->bt_option = Sprite::create("bt_option.png");
+	pauselayer->bt_option = Sprite::create("ui/bt_option.png");
 	pauselayer->bt_option->setAnchorPoint(Vec2(0, 0));
 	pauselayer->bt_option->setPosition(Vec2(440, 310));
 	//bt_option->setScale(1.7f, 1.7f);
@@ -52,7 +49,7 @@ bool PauseLayer::init()
 	pauselayer->addChild(bt_option);
 
 	pauselayer->bt_exit = new Sprite;
-	pauselayer->bt_exit = Sprite::create("bt_exit.png");
+	pauselayer->bt_exit = Sprite::create("ui/bt_exit.png");
 	pauselayer->bt_exit->setAnchorPoint(Vec2(0, 0));
 	pauselayer->bt_exit->setPosition(Vec2(740, 310));
 	//bt_exit->setScale(1.7f, 1.7f);
@@ -90,18 +87,18 @@ bool PauseLayer::onTouch(cocos2d::Touch* touch, cocos2d::Event* event)
 	if (pauselayer->returnTouched)
 	{
 		Director::getInstance()->pushScene(GameScene::createScene());
-		CCLOG("Return Botton Touched!");
+		//CCLOG("Return Botton Touched!");
 	}
 
 	else if (pauselayer->optionTouched)
 	{
-		CCLOG("Option Botton Touched!");
+		//CCLOG("Option Botton Touched!");
 	}
 
 	else if (pauselayer->exitTouched)
 	{
 		Director::getInstance()->end();
-		CCLOG("Exit Botton Touched!");
+		//CCLOG("Exit Botton Touched!");
 	}
 
 	return true;

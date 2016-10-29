@@ -1,0 +1,18 @@
+objectCount 6
+0 d:\Users\bbh10\Desktop\富ekfl\1.png
+1 d:\Users\bbh10\Desktop\富ekfl\2.png
+2 d:\Users\bbh10\Desktop\富ekfl\3.png
+3 d:\Users\bbh10\Desktop\富ekfl\4.png
+4 d:\Users\bbh10\Desktop\富ekfl\5.png
+5 d:\Users\bbh10\Desktop\富ekfl\6.png
+
+pageCount 1
+
+horse_legs0.png 1200,800
+object0 300,400 0,0
+object1 300,400 300,0
+object2 300,400 600,0
+object3 300,400 900,0
+object4 300,400 0,400
+object5 300,400 300,400
+

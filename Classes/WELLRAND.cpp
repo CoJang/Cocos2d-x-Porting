@@ -1,6 +1,5 @@
-#include "WELLRAND.h"
-#include <cstdlib>
-#include <ctime>
+#pragma once
+#include "Headers.h"
 
 #define W 32
 #define R 624

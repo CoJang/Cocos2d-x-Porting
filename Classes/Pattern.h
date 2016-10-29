@@ -1,7 +1,5 @@
 #pragma once
-#include <forward_list>
-#include "cocos2d.h"
-#include "Animator.h"
+#include "Headers.h"
 
 using namespace std;
 

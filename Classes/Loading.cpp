@@ -1,9 +1,5 @@
-#include "Loading.h"
-#include "SimpleAudioEngine.h"
-#include "cocostudio/CocoStudio.h"
-
-#include "GameScene.h"
-#include "LobbyScene.h"
+#pragma once
+#include "Headers.h"
 
 using namespace CocosDenshion;
 using namespace cocostudio::timeline;
@@ -35,40 +31,29 @@ bool Loading::init()
 	_numberOfLoadedSprites = 0;
 	auto size = Director::getInstance()->getWinSize();
 
-	//Title_Animation = new Animator;
-	//Title_Action = new Animate;
-	////LoadSucceced = false;
-	//
+	Title_Animation = new Animator;
+	Title_Action = new Animate;
+	
 
-	//Title_Action = Title_Animation->MakeAnimate(0.033f, "title.txt");
+	Title_Action = Title_Animation->MakeAnimate(0.033f, "title/title.txt");
 
+	auto bg = Sprite::create();
+	bg->setAnchorPoint(Vec2(0.0f, 0.0f));
+	bg->setPosition(Vec2(0, 0));
 
-	/*auto bg = Sprite::create("title_logo.png");
+	auto ChangeScene = CallFunc::create([]()
+	{
+		Director::getInstance()->replaceScene(GameScene::createScene()); // 씬전환
+	});
 
-	bg->setColor(Color3B(255, 255, 255));
-	bg->setAnchorPoint(Vec2(0.5f, 0.5f));
-	bg->setPosition(Point(640, 360));
+	auto seq = Sequence::create(Title_Action, ChangeScene, nullptr);
 
-	this->addChild(bg);*/
+	bg->runAction(seq);
 
-	//auto bg = Sprite::create();
-	//bg->setAnchorPoint(Vec2(0.0f, 0.0f));
-	//bg->setPosition(Vec2(0, 0));
+	this->addChild(bg);
 
-	//auto ChangeScene = CallFunc::create([]()
-	//{
-	//	//g_bVideoFinished = true;
-	//	Director::getInstance()->replaceScene(GameScene::createScene()); // 씬전환
-	//});
-
-	//auto seq = Sequence::create(Title_Action, ChangeScene, nullptr);
-
-	//bg->runAction(seq);
-
-	//this->addChild(bg);
-
-	auto _labelLoading = Label::create("Loading...", "hymocpanl.ttf", 30);
-	auto _labelPercent = Label::create("0%", "hymocpanl.ttf", 30);
+	auto _labelLoading = Label::create("Loading...", "fonts/hymocpanl.ttf", 30);
+	auto _labelPercent = Label::create("0%", "fonts/hymocpanl.ttf", 30);
 
 	_labelPercent->setName("Percent");
 	_labelLoading->setName("Loading");
@@ -83,7 +68,7 @@ bool Loading::init()
 	this->addChild(_labelLoading);
 	this->addChild(_labelPercent);
 	
-	_numberOfSprites = 43; //load1()에있는 불러오는텍스쳐 수대로 적으면 됨
+	_numberOfSprites = 44; //load1()에있는 불러오는텍스쳐 수대로 적으면 됨
 	
 	
 	load1();
@@ -95,56 +80,58 @@ bool Loading::init()
 
 void Loading::load1()
 {
-	Director::getInstance()->getTextureCache()->addImageAsync("horse_body0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("horse_head0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("horse_legs0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("horse/horse_body0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("horse/horse_head0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("horse/horse_legs0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
 
-	Director::getInstance()->getTextureCache()->addImageAsync("man_attack_to_defense0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("man_attack0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("man_body0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("man_defense_std0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("man_defense_to_attack0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("man_defense0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("man_head0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("man_legs0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("man/man_attack_to_defense0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("man/man_attack0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("man/man_body0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("man/man_defense_std0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("man/man_defense_to_attack0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("man/man_defense0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("man/man_head0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("man/man_legs0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
 	
-	Director::getInstance()->getTextureCache()->addImageAsync("mid_gradaition.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("mountain_ground.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("noneani_ui.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("sky_gradaition.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("sky_ground.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("garage.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("ground.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("title_logo.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("background/mid_gradaition.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("background/mountain_ground.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("background/sky_gradaition.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("background/sky_ground.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("background/garage.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("background/ground.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
 	
-	Director::getInstance()->getTextureCache()->addImageAsync("touchspr.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("ui_lamp0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("ui0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("ui_layer.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("bt_pause.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("bt_return.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("bt_option.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("bt_exit.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("ui/noneani_ui.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("ui/touchspr.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("ui/ui_lamp0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("ui/ui0.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("ui/ui_layer.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("ui/bt_pause.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("ui/bt_return.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("ui/bt_option.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("ui/bt_exit.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("ui/alert.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
 
-	Director::getInstance()->getTextureCache()->addImageAsync("object1.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("object/object1.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
 
-	Director::getInstance()->getTextureCache()->addImageAsync("wall_00.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("wall_01.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("wall/wall_00.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("wall/wall_01.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
 
-	Director::getInstance()->getTextureCache()->addImageAsync("wall_ani_00.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("wall_ani_01.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("wall_ani_02.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("wall_ani_03.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("wall_ani_04.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("wall_ani_05.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("wall_ani_06.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("wall_ani_07.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("wall_ani_08.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("wall_ani_09.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("wall/wall_ani_00.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("wall/wall_ani_01.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("wall/wall_ani_02.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("wall/wall_ani_03.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("wall/wall_ani_04.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("wall/wall_ani_05.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("wall/wall_ani_06.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("wall/wall_ani_07.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("wall/wall_ani_08.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("wall/wall_ani_09.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
 
-	Director::getInstance()->getTextureCache()->addImageAsync("wall_ani_10.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("wall_ani_11.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
-	Director::getInstance()->getTextureCache()->addImageAsync("wall_ani_12.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("wall/wall_ani_10.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("wall/wall_ani_11.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+	Director::getInstance()->getTextureCache()->addImageAsync("wall/wall_ani_12.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
+
+	Director::getInstance()->getTextureCache()->addImageAsync("bullet/bullet_exp.png", CC_CALLBACK_1(Loading::loadingCallBack, this));
 
 }
 
@@ -173,8 +160,8 @@ void Loading::loadingCallBack(cocos2d::Texture2D *texture)
 	if (_numberOfLoadedSprites == _numberOfSprites) //텍스쳐를다불러오면
 	{
 
-		SimpleAudioEngine::getInstance()->preloadBackgroundMusic("overwatch - main theme victory theme (guitar remix).mp3"); // 배경음이랑 효과음도 미리 넣어둔다
-		SimpleAudioEngine::getInstance()->preloadBackgroundMusic("overwatch - trailer theme - short ver. (classical guitar cover).mp3");
+		SimpleAudioEngine::getInstance()->preloadBackgroundMusic("sound/overwatch - main theme victory theme (guitar remix).mp3"); // 배경음이랑 효과음도 미리 넣어둔다
+		SimpleAudioEngine::getInstance()->preloadBackgroundMusic("sound/overwatch - trailer theme - short ver. (classical guitar cover).mp3");
 			//SimpleAudioEngine::getInstance()->preloadEffect("sound/click2.wav"); // 효과음 불러오기
 			
 

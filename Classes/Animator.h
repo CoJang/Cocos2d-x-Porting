@@ -1,7 +1,5 @@
 #pragma once
-
-#include<vector>
-#include "cocos2d.h"
+#include "Headers.h"
 
 USING_NS_CC;
 

@@ -1,7 +1,5 @@
-#include "GameScene.h"
-#include "Loading.h"
-#include "AppDelegate.h"
-#include "WELLRAND.h"
+#pragma once
+#include "Headers.h"
 
 
 USING_NS_CC;

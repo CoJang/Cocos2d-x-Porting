@@ -1,4 +1,5 @@
-#include "MyCamera.h"
+#pragma once
+#include "Headers.h"
 
 USING_NS_CC;
 

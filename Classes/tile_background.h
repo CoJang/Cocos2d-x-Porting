@@ -1,5 +1,5 @@
 #pragma once
-#include "cocos2d.h"
+#include "Headers.h"
 
 USING_NS_CC;
 
@@ -12,6 +12,7 @@ public:
 	Sprite* Sky_Gradaition;
 	Sprite* Mid_Gradaition;
 
+	float TileSpeed;
 
 	tile_background();
 	virtual ~tile_background();
@@ -21,3 +22,5 @@ public:
 
 	virtual void update(float delta);
 };
+
+extern tile_background* Tile_Background;

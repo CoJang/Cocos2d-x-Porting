@@ -1,9 +1,5 @@
-#ifndef _LOADING_TEST_H_
-#define _LOADING_TEST_H_
-
-#include "cocos2d.h"
-#include "GameScene.h"
-#include "Animator.h"
+#pragma once
+#include "Headers.h"
 
 class Loading : public cocos2d::Layer
 {
@@ -31,7 +27,3 @@ private:
 	Animator* Title_Animation;
 	Animate*  Title_Action;
 };
-
-
-
-#endif 

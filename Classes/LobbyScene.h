@@ -1,12 +1,5 @@
 #pragma once
-#include "cocos2d.h"
-#include "Animator.h"
-#include "Horse.h"
-#include "Man.h"
-#include "UI.h"
-#include "tile_background.h"
-#include "Objects.h"
-#include "Pattern.h"
+#include "Headers.h"
 
 USING_NS_CC;
 

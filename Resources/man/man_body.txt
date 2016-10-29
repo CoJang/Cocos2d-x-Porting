@@ -1,0 +1,18 @@
+objectCount 6
+0 d:\Users\bbh10\Desktop\drive-download-20161023T084413Z\1.png
+1 d:\Users\bbh10\Desktop\drive-download-20161023T084413Z\2.png
+2 d:\Users\bbh10\Desktop\drive-download-20161023T084413Z\3.png
+3 d:\Users\bbh10\Desktop\drive-download-20161023T084413Z\4.png
+4 d:\Users\bbh10\Desktop\drive-download-20161023T084413Z\5.png
+5 d:\Users\bbh10\Desktop\drive-download-20161023T084413Z\6.png
+
+pageCount 1
+
+man_body0.png 2000,800
+object0 500,400 0,0
+object1 500,400 500,0
+object2 500,400 1000,0
+object3 500,400 1500,0
+object4 500,400 0,400
+object5 500,400 500,400
+

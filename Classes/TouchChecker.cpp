@@ -1,6 +1,5 @@
-#include "TouchChecker.h"
-#include "cocos2d.h"
-
+#pragma once
+#include "Headers.h"
 
 float GetDistance(float touchX, float touchY, float SizeX, float SizeY)
 {

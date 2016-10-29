@@ -1,0 +1,18 @@
+objectCount 6
+0 d:\Users\bbh10\Desktop\drive-download-20161008T055524Z\1단계 머리 0001.png
+1 d:\Users\bbh10\Desktop\drive-download-20161008T055524Z\1단계 머리 0002.png
+2 d:\Users\bbh10\Desktop\drive-download-20161008T055524Z\1단계 머리 0003.png
+3 d:\Users\bbh10\Desktop\drive-download-20161008T055524Z\1단계 머리 0004.png
+4 d:\Users\bbh10\Desktop\drive-download-20161008T055524Z\1단계 머리 0005.png
+5 d:\Users\bbh10\Desktop\drive-download-20161008T055524Z\1단계 머리 0006.png
+
+pageCount 1
+
+man_head0.png 1200,800
+object0 300,400 0,0
+object1 300,400 300,0
+object2 300,400 600,0
+object3 300,400 900,0
+object4 300,400 0,400
+object5 300,400 300,400
+

@@ -1,15 +1,5 @@
-#include "GameScene.h"
-#include "LobbyScene.h"
-#include "Animator.h"
-#include "MyCamera.h"
-#include "cocostudio/CocoStudio.h"
-#include "SimpleAudioEngine.h"
-#include "ui/CocosGUI.h"
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <assert.h>
+#pragma once
+#include "Headers.h"
 
 USING_NS_CC;
 
@@ -56,14 +46,14 @@ bool LobbyScene::init()
 	listener->onTouchEnded = CC_CALLBACK_2(LobbyScene::onTouchEnded, this);
 	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
 
-	background = Sprite::create("garage.png");
+	background = Sprite::create("background/garage.png");
 
 	background->setAnchorPoint(Vec2(0, 0));
 	background->setPosition(Vec2(0, 0));
 
 	this->addChild(background, 1, "background");
 
-	SimpleAudioEngine::getInstance()->playBackgroundMusic("overwatch - trailer theme - short ver. (classical guitar cover).mp3");
+	SimpleAudioEngine::getInstance()->playBackgroundMusic("sound/overwatch - trailer theme - short ver. (classical guitar cover).mp3");
 
 	scheduleUpdate();
 
